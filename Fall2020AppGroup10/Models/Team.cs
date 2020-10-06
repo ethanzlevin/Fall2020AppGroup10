@@ -20,14 +20,21 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public string Division { get; set; }
 
+        [Required]
+        public int Wins { get; set; }
+
+        [Required]
+        public int Losses { get; set; }
+
         public Team() { }
 
-        public Team(int teamID, string name, string city, string division)
+        public Team(string name, string city, string division, int wins, int losses)
         {
-            this.TeamID = teamID;
             this.Name = name;
             this.City = city;
-            this.Division = division; 
+            this.Division = division;
+            this.Wins = wins;
+            this.Losses = losses;
         }
     }
 }

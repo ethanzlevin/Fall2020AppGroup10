@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,11 @@ namespace Fall2020AppGroup10.Models
     public class Player
     {
         [Key]
-        public int PlayerID { get; set; } 
+        public int PlayerID { get; set; }
+
+        public int TeamID { get; set; }
+        [ForeignKey ("TeamID")]
+        
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -36,9 +41,9 @@ namespace Fall2020AppGroup10.Models
          
         public Player() { }
 
-        public Player(int playerID, string firstName, string lastName, DateTime dob, string position, int rookieYear, decimal salary, decimal pointsPerGame, decimal assistsPerGame, decimal fieldGoalPercent)
+        public Player(int teamID, string firstName, string lastName, DateTime dob, string position, int rookieYear, decimal salary, decimal pointsPerGame, decimal assistsPerGame, decimal fieldGoalPercent)
         {
-            this.PlayerID = playerID;
+            this.TeamID = teamID;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.DOB = dob;
