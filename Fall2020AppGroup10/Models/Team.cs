@@ -26,6 +26,8 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public int Losses { get; set; }
 
+        public List<Player> PlayersOnTeam { get; set; }
+
         public Team() { }
 
         public Team(string name, string city, string division, int wins, int losses)
@@ -35,6 +37,7 @@ namespace Fall2020AppGroup10.Models
             this.Division = division;
             this.Wins = wins;
             this.Losses = losses;
+            this.PlayersOnTeam = new List<Player>();
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using Fall2020AppGroup10.Models;
+using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,7 @@ namespace Fall2020AppGroup10.Data
 
             }
 
+            /*
             DateTime dateOfBrith = new DateTime(1984, 12, 30);
             decimal salary = 37.2m;
             decimal pointspergame = 25.3m;
@@ -46,7 +50,8 @@ namespace Fall2020AppGroup10.Data
 
             }
 
-
+            */
         }
+            
     }
 }

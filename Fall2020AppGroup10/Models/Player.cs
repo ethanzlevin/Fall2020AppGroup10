@@ -11,10 +11,11 @@ namespace Fall2020AppGroup10.Models
     {
         [Key]
         public int PlayerID { get; set; }
-
+        [Required]
         public int TeamID { get; set; }
         [ForeignKey ("TeamID")]
         
+
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -29,15 +30,22 @@ namespace Fall2020AppGroup10.Models
         //this is not needed to be known for the bets to be made so they are not required but are able to be entered 
         public int RookieYear { get; set; }//it is int becasue we only want the year, the datetime is to specific and is not needed
         public decimal Salary { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
 
         //Statistics for the player
         [Required]
         public decimal PointsPerGame { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+
         [Required]
         public decimal AssistsPerGame { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal FieldGoalPercent { get; set; }
-        
+        [Column(TypeName = "decimal(18,2)")]
+
+        public Team PlayerOnTeams { get; set; }// unsure about this
+
          
         public Player() { }
 
