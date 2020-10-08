@@ -13,7 +13,8 @@ namespace Fall2020AppGroup10.Models
         public int PlayerID { get; set; }
         [Required]
         public int TeamID { get; set; }
-        [ForeignKey ("TeamID")]
+        
+        
         
 
         [Required]
@@ -44,6 +45,7 @@ namespace Fall2020AppGroup10.Models
         public decimal FieldGoalPercent { get; set; }
         [Column(TypeName = "decimal(18,2)")]
 
+        [ForeignKey("TeamID")]
         public Team PlayerOnTeams { get; set; }// unsure about this
 
          

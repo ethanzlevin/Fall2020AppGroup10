@@ -33,7 +33,7 @@ namespace Fall2020AppGroup10.Data
 
             }
 
-            /*
+            
             DateTime dateOfBrith = new DateTime(1984, 12, 30);
             decimal salary = 37.2m;
             decimal pointspergame = 25.3m;
@@ -50,7 +50,7 @@ namespace Fall2020AppGroup10.Data
 
             }
 
-            */
+            
         }
             
     }
