@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Player>
+
+<h4>List of All Pets</h4>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> DOB </th>
+            <th> Position </th>
+            <th> Rookie Year </th>
+            <th> Salary </th>
+            <th> Points Per Game </th>
+            <th> Assists Per Game</th>
+            <th> Feild Goal Percentage </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(Player eachPlayer in Model)
+        {
+        <tr>
+            <td>@eachPlayer.FirstName </td>
+            <td>@eachPlayer.LastName </td>
+            <td>@eachPlayer.DOB </td>
+            <td>@eachPlayer.Position </td>
+            <td>@eachPlayer.RookieYear </td>
+            <td>@eachPlayer.Salary </td>
+            <td>@eachPlayer.PointsPerGame </td>
+            <td>@eachPlayer.AssistsPerGame </td>
+            <td>@eachPlayer.FieldGoalPercent </td>
+        </tr>
+        }
+
+
+    </tbody>
+
+
+</table>
+

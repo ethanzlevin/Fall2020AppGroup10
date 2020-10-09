@@ -29,7 +29,10 @@ namespace Fall2020AppGroup10.Models
         public string Position { get; set; }
 
         //this is not needed to be known for the bets to be made so they are not required but are able to be entered 
+        [Required]
         public int RookieYear { get; set; }//it is int becasue we only want the year, the datetime is to specific and is not needed
+        
+        [Required]
         public decimal Salary { get; set; }
         [Column(TypeName = "decimal(18,2)")]
 
@@ -41,6 +44,7 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public decimal AssistsPerGame { get; set; }
         [Column(TypeName = "decimal(18,2)")]
+
         [Required]
         public decimal FieldGoalPercent { get; set; }
         [Column(TypeName = "decimal(18,2)")]
