@@ -20,7 +20,7 @@ namespace Fall2020AppGroup10
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-
+                //
                 try
                 {
                     DbInitializer.Initialize(services);
