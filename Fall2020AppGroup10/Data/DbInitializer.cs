@@ -1,5 +1,6 @@
 ﻿using Fall2020AppGroup10.Models;
 using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Microsoft.Extensions.DependencyInjection;
@@ -69,6 +70,12 @@ namespace Fall2020AppGroup10.Data
                 database.SaveChanges();
 
                 dateOfBrith = new DateTime(1991, 6, 29);
+
+                player = new Player(1, "Rajon", "Rondo", dateOfBrith, "PG", 2006, 2.56m, 10.2m, 8.3m, 45.8m);
+                database.Player.Add(player);
+                database.SaveChanges();
+
+                dateOfBrith = new DateTime(1986, 2, 22);
 
                 player = new Player(2, "Kawhi", "Leonard", dateOfBrith, "F", 2011, 32.74m, 27.1m, 4.9m, 47m);
                 database.Player.Add(player);
