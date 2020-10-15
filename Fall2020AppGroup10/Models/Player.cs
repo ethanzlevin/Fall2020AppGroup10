@@ -15,8 +15,6 @@ namespace Fall2020AppGroup10.Models
         public int TeamID { get; set; }
         
         
-        
-
         [Required]
         public string FirstName { get; set; }
         [Required]
