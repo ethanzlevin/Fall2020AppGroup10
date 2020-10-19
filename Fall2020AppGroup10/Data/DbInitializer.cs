@@ -16,8 +16,8 @@ namespace Fall2020AppGroup10.Data
         public static void Initialize(IServiceProvider services)
         {
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
-            
-       
+
+
             if (!database.Team.Any())
             {
                 //1
@@ -155,7 +155,7 @@ namespace Fall2020AppGroup10.Data
                 database.SaveChanges();
 
             }
-            
+
 
 
             DateTime dateOfBrith = new DateTime(1984, 12, 30);
@@ -204,8 +204,18 @@ namespace Fall2020AppGroup10.Data
 
             }
 
+            if (!database.PlayerGame.Any())
+            {
+                DateTime GameTime = new DateTime(2020, 10, 13);
 
+                PlayerGame playerGame = new PlayerGame(1, GameTime, 34, 4, 3, 5, 9);
+                database.PlayerGame.Add(playerGame);
+                database.SaveChanges();
+
+
+            }
         }
+
             
     }
 }
