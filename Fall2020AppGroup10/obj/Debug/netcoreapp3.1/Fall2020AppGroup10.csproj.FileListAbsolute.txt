@@ -426,3 +426,13 @@ C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\ne
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.dll
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.pdb
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.genruntimeconfig.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csprojAssemblyReference.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.AssemblyInfoInputs.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.AssemblyInfo.cs
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csproj.CoreCompileInputs.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.RazorAssemblyInfo.cache
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.RazorAssemblyInfo.cs
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.dll
+C:\Users\ethan\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.pdb
