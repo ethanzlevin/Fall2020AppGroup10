@@ -17,7 +17,7 @@ namespace Fall2020AppGroup10.Controllers
             this.database = dbContext; 
         }
 
-        public IActionResult ListAllPlayers()
+        public IActionResult ListAllTeams()
         {
             List<Team> allTeams = database.Team.ToList();
             

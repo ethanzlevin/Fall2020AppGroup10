@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Team>
+
+<h4>List of All Teams</h4>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> City </th>
+            <th> Division </th>
+            <th> Wins </th>
+            <th> Losses </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Team eachTeam in Model)
+        {
+            <tr>
+                <td>@eachTeam.Name </td>
+                <td>@eachTeam.City </td>
+                <td>@eachTeam.Division </td>
+                <td>@eachTeam.Wins</td>
+                <td>@eachTeam.Losses</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

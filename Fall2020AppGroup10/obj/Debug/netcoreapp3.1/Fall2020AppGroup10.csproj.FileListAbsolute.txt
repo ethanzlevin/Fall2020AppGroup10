@@ -258,7 +258,6 @@ C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\bin\Debug\netc
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csproj.CoreCompileInputs.cache
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Team\ListAllPlayers.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -426,3 +425,5 @@ C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\ne
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.dll
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.pdb
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.genruntimeconfig.cache
+C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Team\ListAllTeams.cshtml.g.cs
+C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Player\ListAllPlayers.cshtml.g.cs

@@ -16,8 +16,8 @@ namespace Fall2020AppGroup10.Data
         public static void Initialize(IServiceProvider services)
         {
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
-            
-       
+
+
             if (!database.Team.Any())
             {
                 //1
@@ -56,16 +56,16 @@ namespace Fall2020AppGroup10.Data
                 database.SaveChanges();
             }
 
-            
+
             DateTime dateOfBrith = new DateTime(1984, 12, 30);
-            decimal salary = 37.2m;
-            decimal pointspergame = 25.3m;
-            decimal assistspergame = 10.2m;
-            decimal feildgoalpercent = 54.8m;
+            //decimal salary = 37.2m;
+            //decimal pointspergame = 25.3m;
+            //decimal assistspergame = 10.2m;
+            //decimal feildgoalpercent = 54.8m;
 
             if (!database.Player.Any())
             {
-                Player player = new Player(1, "Lebron", "James", dateOfBrith, "F", 2003, salary, pointspergame, assistspergame, feildgoalpercent);
+                Player player = new Player(1, "Lebron", "James", dateOfBrith, "F", 2003, 37.2m, 25.3m, 10.2m, 54.8m);
                 database.Player.Add(player);
                 database.SaveChanges();
 
@@ -98,13 +98,18 @@ namespace Fall2020AppGroup10.Data
                 player = new Player(6, "LaMarcus", "Aldridge", dateOfBrith, "F", 2006, 19.69m, 18.9m, 2.4m, 49.3m);
                 database.Player.Add(player);
                 database.SaveChanges();
-
-
-
             }
 
+            if (!database.PlayerGame.Any())
+            {
+                DateTime GameTime = new DateTime(2020, 10, 13);
 
+                PlayerGame playerGame = new PlayerGame(1, GameTime, 34, 4, 3, 5, 9);
+                database.PlayerGame.Add(playerGame);
+                database.SaveChanges();
+
+                
+            }
         }
-            
     }
 }

@@ -19,10 +19,10 @@ namespace Fall2020AppGroup10.Controllers
 
         public IActionResult ListAllPlayer()
         {
-            List<Player> allPlayer = database.Player.ToList();
+            List<Player> allPlayers = database.Player.ToList();
 
-            return View(allPlayer);
+            return View(allPlayers);
         }
     }
 }
-}
+
