@@ -75,7 +75,7 @@ namespace Fall2020AppGroup10.Data
                 database.Team.Add(team);
                 database.SaveChanges();
                 //12
-                team = new Team("Mavericks", "Dallas", "West", 12, 1;
+                team = new Team("Mavericks", "Dallas", "West", 12, 1);
                 database.Team.Add(team);
                 database.SaveChanges();
 
