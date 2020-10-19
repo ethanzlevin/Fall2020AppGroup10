@@ -16,8 +16,8 @@ namespace Fall2020AppGroup10.Data
         public static void Initialize(IServiceProvider services)
         {
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
-
-
+            
+       
             if (!database.Team.Any())
             {
                 //1
@@ -54,18 +54,119 @@ namespace Fall2020AppGroup10.Data
                 team = new Team("Spurs", "San Antonio", "West", 13, 0);
                 database.Team.Add(team);
                 database.SaveChanges();
+                //7
+                team = new Team("Hawks", "Atlanta", "East", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //8
+                team = new Team("Celtics", "Boston", "East", 12, 1);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //9
+                team = new Team("Nets", "Brooklyn", "East", 9, 4);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //10
+                team = new Team("Hornets", "Charlotte", "East", 0, 13);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //11
+                team = new Team("Cavaliers", "Cleveland", "East", 1, 12);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //12
+                team = new Team("Mavericks", "Dallas", "West", 12, 1);
+                database.Team.Add(team);
+                database.SaveChanges();
+
+                //13
+                team = new Team("Nuggets", "Denver", "West", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+
+                //14
+                team = new Team("Pistons", "Detroit", "East", 2, 11);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //15
+                team = new Team("Warriors", "Golden State", "West", 12, 1);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //16
+                team = new Team("Rockets", "Houston", "West", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+
+                //17
+                team = new Team("Grizzlies", "Memphis", "West", 9, 4);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //18
+                team = new Team("Pacers", "Indiana", "East", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //19
+                team = new Team("Heat", "Miami", "East", 12, 1);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //20
+                team = new Team("Bucks", "Milwaukee", "West", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //21
+                team = new Team("Timberwolves", "Minnesota", "West", 6, 6);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //22
+                team = new Team("Pelicans", "New Orleans", "West", 7, 5);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //23
+                team = new Team("Knicks", "New York", "East", 0, 13);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //24
+                team = new Team("Thunder", "Oklahoma City", "West", 5, 7);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //25
+                team = new Team("Magic", "Orlando", "East", 2, 11);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //26
+                team = new Team("76ers", "Philadelphia", "East", 13, 0);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //27
+                team = new Team("Suns", "Phoenix", "West", 6, 7);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //28
+                team = new Team("Trail Blazers", "Portland", "West", 8, 5);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //29
+                team = new Team("Kings", "Sacramento", "West", 4, 9);
+                database.Team.Add(team);
+                database.SaveChanges();
+                //30
+                team = new Team("Jazz", "Utah", "West", 10, 3);
+                database.Team.Add(team);
+                database.SaveChanges();
+
             }
+            
 
 
             DateTime dateOfBrith = new DateTime(1984, 12, 30);
-            //decimal salary = 37.2m;
-            //decimal pointspergame = 25.3m;
-            //decimal assistspergame = 10.2m;
-            //decimal feildgoalpercent = 54.8m;
+            decimal salary = 37.2m;
+            decimal pointspergame = 25.3m;
+            decimal assistspergame = 10.2m;
+            decimal feildgoalpercent = 54.8m;
 
             if (!database.Player.Any())
             {
-                Player player = new Player(1, "Lebron", "James", dateOfBrith, "F", 2003, 37.2m, 25.3m, 10.2m, 54.8m);
+                Player player = new Player(1, "Lebron", "James", dateOfBrith, "F", 2003, salary, pointspergame, assistspergame, feildgoalpercent);
                 database.Player.Add(player);
                 database.SaveChanges();
 
@@ -98,18 +199,13 @@ namespace Fall2020AppGroup10.Data
                 player = new Player(6, "LaMarcus", "Aldridge", dateOfBrith, "F", 2006, 19.69m, 18.9m, 2.4m, 49.3m);
                 database.Player.Add(player);
                 database.SaveChanges();
+
+
+
             }
 
-            if (!database.PlayerGame.Any())
-            {
-                DateTime GameTime = new DateTime(2020, 10, 13);
 
-                PlayerGame playerGame = new PlayerGame(1, GameTime, 34, 4, 3, 5, 9);
-                database.PlayerGame.Add(playerGame);
-                database.SaveChanges();
-
-                
-            }
         }
+            
     }
 }
