@@ -15,6 +15,12 @@ namespace Fall2020AppGroup10.Data
 
         public DbSet<PlayerGame> PlayerGame { get; set; }
         
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<User> User { get; set; }
+
+        public DbSet<Employee> Employee { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

@@ -1,5 +1,6 @@
 ﻿using Fall2020AppGroup10.Models;
 using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
@@ -16,6 +17,51 @@ namespace Fall2020AppGroup10.Data
         public static void Initialize(IServiceProvider services)
         {
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
+
+
+            //Role service 
+            //In startup.cs need to add  .AddRoleManager<IdentityRole>()
+            RoleManager<IdentityRole> roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+            //Creating Users
+            //In startup.cs change line 34 identityUser to ApplicationUser
+            //In _LoginPartial.cshtml change the IdentityUSer to ApplicaitonUser in line 3 and 4
+            UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+            string userRole = "User";
+            string employeeRole = "Employee";
+            
+
+            if (!database.Roles.Any())
+            {
+                IdentityRole role = new IdentityRole(userRole);
+                roleManager.CreateAsync(role).Wait();
+
+                role = new IdentityRole(employeeRole);
+                roleManager.CreateAsync(role).Wait();
+            }
+
+            if (!database.ApplicationUser.Any())
+            {
+                User user = new User("Test", "Client1", "1 Client1 Address", "3040000001", "TestClient1@test.com", "TestClient1");
+                userManager.CreateAsync(user).Wait();
+                userManager.AddToRoleAsync(user, userRole).Wait();   //all async method need to have wait() attached
+
+                user = new User("Test", "Client2", "2 Client2 Address", "3040000002", "TestClient2@test.com", "TestClient2");
+                userManager.CreateAsync(user).Wait();
+                userManager.AddToRoleAsync(user, userRole).Wait();
+
+                Employee employee = new Employee("Test", "Volunteer1", "1 Volunteer1 Address", "3040000003", "Testvolunteer1@test.com", "TestVolunteer1", 43);
+                userManager.CreateAsync(employee).Wait();
+                userManager.AddToRoleAsync(employee, employeeRole).Wait();
+
+                employee = new Employee("Test", "Volunteer2", "2 Volunteer2 Address", "3040000004", "Testvolunteer2@test.com", "TestVolunteer2", 19);
+                userManager.CreateAsync(employee).Wait();
+                userManager.AddToRoleAsync(employee, employeeRole).Wait();
+
+
+            }
+
 
 
             if (!database.Team.Any())
