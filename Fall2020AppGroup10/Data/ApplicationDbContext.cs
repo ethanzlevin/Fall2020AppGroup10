@@ -21,6 +21,10 @@ namespace Fall2020AppGroup10.Data
 
         public DbSet<Employee> Employee { get; set; }
 
+        public DbSet<Payment> Payment { get; set; }
+
+        public DbSet<Bet> Bet { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

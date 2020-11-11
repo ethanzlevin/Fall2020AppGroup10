@@ -19,13 +19,9 @@ namespace Fall2020AppGroup10.Data
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
 
 
-            //Role service 
-            //In startup.cs need to add  .AddRoleManager<IdentityRole>()
+            
             RoleManager<IdentityRole> roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-            //Creating Users
-            //In startup.cs change line 34 identityUser to ApplicationUser
-            //In _LoginPartial.cshtml change the IdentityUSer to ApplicaitonUser in line 3 and 4
             UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
             string userRole = "User";
@@ -43,28 +39,67 @@ namespace Fall2020AppGroup10.Data
 
             if (!database.ApplicationUser.Any())
             {
-                User user = new User("Test", "Client1", "1 Client1 Address", "3040000001", "TestClient1@test.com", "TestClient1");
+                User user = new User("Test", "User1", "1 User1 Address", "3040000001", "TestUser1@test.com", "TestUser1");
                 userManager.CreateAsync(user).Wait();
                 userManager.AddToRoleAsync(user, userRole).Wait();   //all async method need to have wait() attached
 
-                user = new User("Test", "Client2", "2 Client2 Address", "3040000002", "TestClient2@test.com", "TestClient2");
+                user = new User("Test", "User2", "2 User2 Address", "3040000002", "TestUser2@test.com", "TestUser2");
                 userManager.CreateAsync(user).Wait();
                 userManager.AddToRoleAsync(user, userRole).Wait();
 
-                Employee employee = new Employee("Test", "Volunteer1", "1 Volunteer1 Address", "3040000003", "Testvolunteer1@test.com", "TestVolunteer1", 43);
+                Employee employee = new Employee("Test", "Employee1", "1 Employee1 Address", "3040000003", "TestEmployee1@test.com", "TestEmployee1", 43);
                 userManager.CreateAsync(employee).Wait();
                 userManager.AddToRoleAsync(employee, employeeRole).Wait();
 
-                employee = new Employee("Test", "Volunteer2", "2 Volunteer2 Address", "3040000004", "Testvolunteer2@test.com", "TestVolunteer2", 19);
+                employee = new Employee("Test", "Employee2", "2 Employee2 Address", "3040000004", "TestEmployee2@test.com", "TestEmployee2", 19);
                 userManager.CreateAsync(employee).Wait();
                 userManager.AddToRoleAsync(employee, employeeRole).Wait();
+            }
 
+            if (!database.Payment.Any())
+            {
+                User user = database.User.Where(c => c.Email == "TestUser1@test.com").FirstOrDefault();
+                string userID = user.Id;
+
+                Payment payment = new Payment(33.01m, 42.1m, "Paypal", userID);
+                database.Payment.Add(payment);
+                database.SaveChanges();
+
+                payment = new Payment(102.10m, 45.45m, "Venmo", userID);
+                database.Payment.Add(payment);
+                database.SaveChanges();
+
+                user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
+                userID = user.Id;
+
+                payment = new Payment(1452.89m, 1441.23m, "Venmo", userID);
+                database.Payment.Add(payment);
+                database.SaveChanges();
 
             }
 
+            if (!database.Bet.Any())
+            {
+                User user = database.User.Where(c => c.Email == "TestUser1@test.com").FirstOrDefault();
+                string userID = user.Id;
+
+                DateTime startdate = new DateTime(2020, 11, 9);
+                DateTime enddate = new DateTime(2020, 11, 11);
+
+                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID);
+                database.Bet.Add(bet);
+                database.SaveChanges();
+
+                user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
+                userID = user.Id;
+
+                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID);
+                database.Bet.Add(bet);
+                database.SaveChanges();
+            }
 
 
-            if (!database.Team.Any())
+                if (!database.Team.Any())
             {
                 //1
                 Team team = new Team("Lakers", "LA", "West", 12, 1);

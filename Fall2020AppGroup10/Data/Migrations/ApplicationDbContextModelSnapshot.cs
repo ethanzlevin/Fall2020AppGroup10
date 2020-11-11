@@ -19,6 +19,64 @@ namespace Fall2020AppGroup10.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Bet", b =>
+                {
+                    b.Property<int>("BetID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("AmountPlaced")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Payout")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Result")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BetID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Bet");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("StartingDeposit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PaymentID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("Fall2020AppGroup10.Models.Player", b =>
                 {
                     b.Property<int>("PlayerID")
@@ -371,6 +429,24 @@ namespace Fall2020AppGroup10.Data.Migrations
                     b.HasBaseType("Fall2020AppGroup10.Models.ApplicationUser");
 
                     b.HasDiscriminator().HasValue("User");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Bet", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.User", "User")
+                        .WithMany("UserBets")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Payment", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.User", "User")
+                        .WithMany("UserPayment")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Fall2020AppGroup10.Models.Player", b =>

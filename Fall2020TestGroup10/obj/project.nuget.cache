@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uvZOQLNP+Zwk2ITvqB3uUqMWCnOnWxOjc4XFPX0aXlKmjn0TlpsAACPY1kvJFg219EtjnqUWMeJDZIjuQ299jg==",
+  "dgSpecHash": "hxTEmL2uDh0KN/brVNaX3l8LXY6lwlayJk8ELzuIqcB/ZoXh4HcpqRdw93ZD6ngDMBW5dCa/m3xNo463cj8uWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\natep\\Source\\Repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
+  "projectFilePath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\natep\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\natep\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

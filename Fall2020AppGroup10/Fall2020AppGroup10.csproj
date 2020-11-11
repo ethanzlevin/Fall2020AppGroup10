@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201007185817_AddedTestTeam.cs" />
+    <Compile Remove="Data\Migrations\20201007185817_AddedTestTeam.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201009164536_AddedPLayerVariables.cs" />
+    <Compile Remove="Data\Migrations\20201009164536_AddedPLayerVariables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201015014929_AddedPlayerGame.cs" />
+    <Compile Remove="Data\Migrations\20201015014929_AddedPlayerGame.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201104212631_AddedUsersandEmployees.cs" />
+    <Compile Remove="Data\Migrations\20201104212631_AddedUsersandEmployees.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201111023629_AddedPayment.cs" />
+    <Compile Remove="Data\Migrations\20201111023629_AddedPayment.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3boaQYauHil7mRrzrcFQg4ONzCCUu7TGbfEF+tdnjzLpCpDDeeJCQ0SVKRiBhip4zCgQmJLMihpd+xngwDmhzQ==",
+  "dgSpecHash": "YoQJx9CljHIItc2j2YjOhJHvSe6bSfZRV1YyINai/RxQgpVluh1QcEqzaLZOccbu6GvK7pOFw7T/59QINGzPpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\natep\\Source\\Repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
+  "projectFilePath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\natep\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.7\\microsoft.aspnetcore.cryptography.internal.3.1.7.nupkg.sha512",
     "C:\\Users\\natep\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.7\\microsoft.aspnetcore.cryptography.keyderivation.3.1.7.nupkg.sha512",
