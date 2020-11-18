@@ -14,13 +14,16 @@ namespace Fall2020AppGroup10.Models
 
         [Required]
         public decimal Balance { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
 
         [Required]
         public decimal StartingDeposit { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
 
         [Required]
+        [NotMapped]
         public string Type { get; set; }
-
+        
 
         [Required]
         public string UserID { get; set; }

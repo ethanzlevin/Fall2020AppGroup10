@@ -19,14 +19,14 @@ namespace Fall2020AppGroup10.Data
             ApplicationDbContext database = services.GetRequiredService<ApplicationDbContext>();
 
 
-            
+
             RoleManager<IdentityRole> roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
             UserManager<ApplicationUser> userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
             string userRole = "User";
             string employeeRole = "Employee";
-            
+
 
             if (!database.Roles.Any())
             {
@@ -78,28 +78,10 @@ namespace Fall2020AppGroup10.Data
 
             }
 
-            if (!database.Bet.Any())
-            {
-                User user = database.User.Where(c => c.Email == "TestUser1@test.com").FirstOrDefault();
-                string userID = user.Id;
-
-                DateTime startdate = new DateTime(2020, 11, 9);
-                DateTime enddate = new DateTime(2020, 11, 11);
-
-                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID);
-                database.Bet.Add(bet);
-                database.SaveChanges();
-
-                user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
-                userID = user.Id;
-
-                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID);
-                database.Bet.Add(bet);
-                database.SaveChanges();
-            }
 
 
-                if (!database.Team.Any())
+
+            if (!database.Team.Any())
             {
                 //1
                 Team team = new Team("Lakers", "LA", "West", 12, 1);
@@ -285,16 +267,63 @@ namespace Fall2020AppGroup10.Data
 
             }
 
+            DateTime GameTime = new DateTime(2020, 10, 13);
+
+            if (!database.Game.Any())
+            {
+
+                Game game = new Game(GameTime, true, 35, 1, 2);
+                database.Game.Add(game);
+                database.SaveChanges();
+            }
+
             if (!database.PlayerGame.Any())
             {
-                DateTime GameTime = new DateTime(2020, 10, 13);
+                
 
-                PlayerGame playerGame = new PlayerGame(1, GameTime, 34, 4, 3, 5, 9);
+                PlayerGame playerGame = new PlayerGame(1, GameTime, 34, 4, 3, 3, 9, 1);
                 database.PlayerGame.Add(playerGame);
                 database.SaveChanges();
 
 
             }
+
+
+            if (!database.PlayerBet.Any())
+            {
+
+            }
+
+            if (!database.GameBet.Any())
+            {
+
+            }
+
+
+
+            if (!database.Bet.Any())
+            {
+                User user = database.User.Where(c => c.Email == "TestUser1@test.com").FirstOrDefault();
+                string userID = user.Id;
+
+                DateTime startdate = new DateTime(2020, 11, 9);
+                DateTime enddate = new DateTime(2020, 11, 11);
+
+                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID, null, null);
+                database.Bet.Add(bet);
+                database.SaveChanges();
+
+                user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
+                userID = user.Id;
+
+                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID, null, null);
+                database.Bet.Add(bet);
+                database.SaveChanges();
+            }
+
+
+
+
         }
 
             

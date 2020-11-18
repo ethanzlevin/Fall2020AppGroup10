@@ -11,7 +11,9 @@ namespace Fall2020AppGroup10.Data
     {
         public DbSet<Team> Team {get; set; }
 
-        public DbSet<Player> Player {get; set; } 
+        public DbSet<Player> Player {get; set; }
+
+        public DbSet<Game> Game { get; set; }
 
         public DbSet<PlayerGame> PlayerGame { get; set; }
         
@@ -23,7 +25,15 @@ namespace Fall2020AppGroup10.Data
 
         public DbSet<Payment> Payment { get; set; }
 
+        
+
+        public DbSet<GameBet> GameBet { get; set; }
+
+        public DbSet<PlayerBet> PlayerBet { get; set; }
+
         public DbSet<Bet> Bet { get; set; }
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

@@ -34,8 +34,18 @@ namespace Fall2020AppGroup10.Models
         //OOC 
         public User User { get; set; }
 
+        [Required]
+        public int? PlayerBetID { get; set; }
+        [ForeignKey("PlayerBetID")]
 
-        public Bet(decimal amountPlaced, decimal payout, DateTime startDate, DateTime? endDate, string result, string userID)
+        public PlayerBet PlayerBet { get; set; }
+
+        public int? GameBetID { get; set; }
+        [ForeignKey("GameBetID")]
+
+        public GameBet GameBet { get; set; }
+
+        public Bet(decimal amountPlaced, decimal payout, DateTime startDate, DateTime? endDate, string result, string userID, int? playerBetID, int? gameBetID)
         {
             this.AmountPlaced = amountPlaced;
             this.Payout = payout; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
@@ -43,6 +53,8 @@ namespace Fall2020AppGroup10.Models
             this.EndDate = null;
             this.Result = result;
             this.UserID = userID;
+            this.PlayerBetID = playerBetID;
+            this.GameBetID = gameBetID;
         }
 
         public Bet() { }

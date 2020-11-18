@@ -48,10 +48,11 @@ namespace Fall2020AppGroup10.Models
         [Column(TypeName = "decimal(18,2)")]
 
         [ForeignKey("TeamID")]
-        public Team PlayerOnTeams { get; set; }// unsure about this
+        public Team Team { get; set; }
 
-         
-        public Player() { }
+        public List<PlayerGame> PlayerGame { get; set; }
+
+        
 
         public Player(int teamID, string firstName, string lastName, DateTime dob, string position, int rookieYear, decimal salary, decimal pointsPerGame, decimal assistsPerGame, decimal fieldGoalPercent)
         {
@@ -65,6 +66,10 @@ namespace Fall2020AppGroup10.Models
             this.PointsPerGame = pointsPerGame;
             this.AssistsPerGame = assistsPerGame;
             this.FieldGoalPercent = fieldGoalPercent;
+            this.PlayerGame = new List<PlayerGame>();
         }
+
+        public Player() { }
+
     }
 }

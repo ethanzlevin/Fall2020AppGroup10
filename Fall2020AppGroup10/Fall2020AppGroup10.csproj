@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201007184343_AddedController.cs" />
+    <Compile Remove="Data\Migrations\20201007184343_AddedController.Designer.cs" />
     <Compile Remove="Data\Migrations\20201007185817_AddedTestTeam.cs" />
     <Compile Remove="Data\Migrations\20201007185817_AddedTestTeam.Designer.cs" />
     <Compile Remove="Data\Migrations\20201009164536_AddedPLayerVariables.cs" />
@@ -16,6 +18,18 @@
     <Compile Remove="Data\Migrations\20201104212631_AddedUsersandEmployees.Designer.cs" />
     <Compile Remove="Data\Migrations\20201111023629_AddedPayment.cs" />
     <Compile Remove="Data\Migrations\20201111023629_AddedPayment.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201111024305_AddedPaymentFK.cs" />
+    <Compile Remove="Data\Migrations\20201111024305_AddedPaymentFK.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201111041704_AddedBetStartDate.cs" />
+    <Compile Remove="Data\Migrations\20201111041704_AddedBetStartDate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201115231958_AddedGameGameBetPlayerBetGameBet.cs" />
+    <Compile Remove="Data\Migrations\20201115231958_AddedGameGameBetPlayerBetGameBet.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201116011838_AddedClasses.cs" />
+    <Compile Remove="Data\Migrations\20201116011838_AddedClasses.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201116012849_AddedClasses.cs" />
+    <Compile Remove="Data\Migrations\20201116012849_AddedClasses.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.cs" />
+    <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
