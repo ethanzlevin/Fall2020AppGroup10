@@ -244,7 +244,7 @@ namespace Fall2020AppGroup10.Data.Migrations
                 column: "TeamID",
                 principalTable: "Team",
                 principalColumn: "TeamID",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -413,7 +413,6 @@ C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\ne
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Team\ListAllPlayers.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.RazorTargetAssemblyInfo.cache
@@ -595,3 +594,5 @@ C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\ne
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.dll
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.pdb
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.genruntimeconfig.cache
+C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Player\ListAllPlayers.cshtml.g.cs
+C:\Users\tak0011\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Team\ListAllTeams.cshtml.g.cs
