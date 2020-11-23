@@ -32,7 +32,7 @@ namespace Fall2020AppGroup10.Models
         
         [Required]
         public decimal Salary { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
+        [DataType(DataType.Currency)]
 
         //Statistics for the player
         [Required]
