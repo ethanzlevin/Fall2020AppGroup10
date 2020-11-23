@@ -220,15 +220,16 @@ namespace Fall2020AppGroup10.Data
             }
 
 
-
-            DateTime dateOfBrith = new DateTime(1984, 12, 30);
-            decimal salary = 37.2m;
-            decimal pointspergame = 25.3m;
-            decimal assistspergame = 10.2m;
-            decimal feildgoalpercent = 54.8m;
-
             if (!database.Player.Any())
             {
+
+                DateTime dateOfBrith = new DateTime(1984, 12, 30);
+                decimal salary = 37.2m;
+                decimal pointspergame = 25.3m;
+                decimal assistspergame = 10.2m;
+                decimal feildgoalpercent = 54.8m;
+
+
                 Player player = new Player(1, "Lebron", "James", dateOfBrith, "F", 2003, salary, pointspergame, assistspergame, feildgoalpercent);
                 database.Player.Add(player);
                 database.SaveChanges();
@@ -291,11 +292,18 @@ namespace Fall2020AppGroup10.Data
 
             if (!database.PlayerBet.Any())
             {
+                PlayerBet playerBet = new PlayerBet(12m, "Points Per Game", 1);
+                database.PlayerBet.Add(playerBet);
+                database.SaveChanges();
+
 
             }
 
             if (!database.GameBet.Any())
             {
+                GameBet gameBet = new GameBet(12.2m, 12, 35, 1);
+                database.GameBet.Add(gameBet);
+                database.SaveChanges();
 
             }
 
