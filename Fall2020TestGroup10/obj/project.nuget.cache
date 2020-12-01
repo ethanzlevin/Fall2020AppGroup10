@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1YfkWjwAFC9vkobOViF2FjarPG+C816Bv5gOmJ4nkR/nHSAh8dXqqLIXo74u8u7M2XNv9ZCgTTLHdxWxv40mUw==",
+  "dgSpecHash": "W0gG84bvHjgYKOJ57r74yqj8IL6op9BAnxXGUFcFTGW7YDKuJYOqoR88Sf0aV43+7Ux/AuFEvr6uwPKpihX6yQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
+  "projectFilePath": "C:\\Users\\EthanLevin\\Source\\Repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EthanLevin\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\EthanLevin\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
