@@ -290,22 +290,7 @@ namespace Fall2020AppGroup10.Data
             }
 
 
-            if (!database.PlayerBet.Any())
-            {
-                PlayerBet playerBet = new PlayerBet(12m, "Points Per Game", 1);
-                database.PlayerBet.Add(playerBet);
-                database.SaveChanges();
 
-
-            }
-
-            if (!database.GameBet.Any())
-            {
-                GameBet gameBet = new GameBet(12.2m, 12, 35, 1);
-                database.GameBet.Add(gameBet);
-                database.SaveChanges();
-
-            }
 
 
 
@@ -317,16 +302,18 @@ namespace Fall2020AppGroup10.Data
                 DateTime startdate = new DateTime(2020, 11, 9);
                 DateTime enddate = new DateTime(2020, 11, 11);
 
-                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID, null, null);
-                database.Bet.Add(bet);
+                PlayerBet playerBet = new PlayerBet(15.00m, startdate, enddate, null, userID, -120, 10, "Assists", 1);
+                database.PlayerBet.Add(playerBet);
                 database.SaveChanges();
 
                 user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
                 userID = user.Id;
 
-                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID, null, null);
-                database.Bet.Add(bet);
+                GameBet gameBet = new GameBet(10.00m, startdate,enddate,null, userID, 200, "Away", 1);
+                database.GameBet.Add(gameBet);
                 database.SaveChanges();
+
+
             }
 
 

@@ -30,6 +30,10 @@
     <Compile Remove="Data\Migrations\20201116012849_AddedClasses.Designer.cs" />
     <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.cs" />
     <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201202214451_betfixed.cs" />
+    <Compile Remove="Data\Migrations\20201202214451_betfixed.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201202224225_childclassbettest.cs" />
+    <Compile Remove="Data\Migrations\20201202224225_childclassbettest.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

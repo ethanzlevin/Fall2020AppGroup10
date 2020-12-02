@@ -7,33 +7,22 @@ using System.Threading.Tasks;
 
 namespace Fall2020AppGroup10.Models
 {
-    public class GameBet
+    public class GameBet : Bet  //game bet is only to bet if a team wins or loses no betting the spread
     {
-        [Key]
-        public int GameBetID { get; set; }
-
-        public decimal? Odds { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
-
-        public int? HomeScore { get; set; }
-
-        public int? AwayScore { get; set; }
-
         [Required]
-        public int GameID { get; set; }
-        [ForeignKey("GameID")]
+        public string WinningTeam { get; set; } // only set as home or away 
 
-        public Game Game { get; set; }
+        
+        
 
-        public List<Bet> Bet { get; set; }
+        
 
-        public GameBet(decimal? odds, int? homeScore, int? awayScore, int gameID)
+        public GameBet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, string winningTeam, int gameID) :
+            base(amountPlaced, startDate, endDate, result, userID, odds, "Game", null, gameID)
         {
-            this.Odds = odds;
-            this.HomeScore = homeScore;
-            this.AwayScore = awayScore;
-            this.GameID = gameID;
-            this.Bet = new List<Bet>();
+            this.WinningTeam = winningTeam;
+            
+            
         }
 
         public GameBet() { }
