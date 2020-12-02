@@ -53,8 +53,10 @@ namespace Fall2020AppGroup10.Models
             this.EndDate = null;
             this.Result = result;
             this.UserID = userID;
-            this.PlayerBetID = playerBetID;
-            this.GameBetID = gameBetID;
+            if (playerBetID.HasValue)
+            { this.PlayerBetID = playerBetID; }
+            if (gameBetID.HasValue)
+            { this.GameBetID = gameBetID; }
         }
 
         public Bet() { }
