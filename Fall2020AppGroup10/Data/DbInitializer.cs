@@ -317,14 +317,14 @@ namespace Fall2020AppGroup10.Data
                 DateTime startdate = new DateTime(2020, 11, 9);
                 DateTime enddate = new DateTime(2020, 11, 11);
 
-                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID, null, null);
+                Bet bet = new Bet(10.00m, 100.00m, startdate, enddate, "Correct", userID, 1, 1);
                 database.Bet.Add(bet);
                 database.SaveChanges();
 
                 user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
                 userID = user.Id;
 
-                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID, null, null);
+                bet = new Bet(15.00m, 0.00m, startdate, enddate, "Wrong", userID, 1, 1);
                 database.Bet.Add(bet);
                 database.SaveChanges();
             }

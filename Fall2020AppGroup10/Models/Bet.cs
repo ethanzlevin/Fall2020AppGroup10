@@ -34,7 +34,6 @@ namespace Fall2020AppGroup10.Models
         //OOC 
         public User User { get; set; }
 
-        [Required]
         public int? PlayerBetID { get; set; }
         [ForeignKey("PlayerBetID")]
 
