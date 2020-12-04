@@ -16,16 +16,20 @@ namespace Fall2020AppGroup10.Models
         public decimal AmountPlaced { get; set; }
         [Column(TypeName = "decimal(18,2)")]
 
-        public decimal Payout { get; set; }
+        public decimal? Payout { get; set; } // the amount won or lost only populated after bet clears
         [Column(TypeName = "decimal(18,2)")]
+
+        public short Odds { get; set; } // its a short so we can have negative odds
 
         [NotMapped]
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
 
-        public string Result { get; set; }
+        public bool? Result { get; set; }
 
+        [Required]
+        public string BetType { get; set; } //Game or Player
 
         [Required]
         public string UserID { get; set; }
@@ -34,26 +38,39 @@ namespace Fall2020AppGroup10.Models
         //OOC 
         public User User { get; set; }
 
-        public int? PlayerBetID { get; set; }
-        [ForeignKey("PlayerBetID")]
+        public int? PlayerGameID { get; set; }
+        [ForeignKey("PlayerGameID")]
 
-        public PlayerBet PlayerBet { get; set; }
+        public PlayerGame PlayerGame { get; set; }
 
-        public int? GameBetID { get; set; }
-        [ForeignKey("GameBetID")]
+        public int? GameID { get; set; }
+        [ForeignKey("GameID")]
 
-        public GameBet GameBet { get; set; }
+        public Game Game { get; set; }
 
-        public Bet(decimal amountPlaced, decimal payout, DateTime startDate, DateTime? endDate, string result, string userID, int? playerBetID, int? gameBetID)
+
+        public Bet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, string betType, int? playerGameID, int? gameID)
         {
             this.AmountPlaced = amountPlaced;
-            this.Payout = payout; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
+            this.Payout = null; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
             this.StartDate = startDate;
             this.EndDate = null;
-            this.Result = result;
+            this.Result = null;
             this.UserID = userID;
-            this.PlayerBetID = playerBetID;
-            this.GameBetID = gameBetID;
+            this.Odds = odds;
+            this.BetType = betType;
+            if (betType == "Player")
+            {
+                this.PlayerGameID = playerGameID;
+            }
+            else { this.PlayerGameID = null; }
+            if (betType == "Game")
+            {
+                this.GameID = gameID;
+            }
+            else { this.GameID = null; }
+
+            
         }
 
         public Bet() { }

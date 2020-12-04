@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj": {}
+    "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj": {}
   },
   "projects": {
-    "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
+    "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
+        "projectUniqueName": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
         "projectName": "Fall2020AppGroup10",
-        "projectPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
-        "packagesPath": "C:\\Users\\natep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\obj\\",
+        "projectPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
+        "packagesPath": "C:\\Users\\EthanLevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\natep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EthanLevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -89,20 +89,20 @@
         }
       }
     },
-    "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj": {
+    "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
+        "projectUniqueName": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
         "projectName": "Fall2020TestGroup10",
-        "projectPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
-        "packagesPath": "C:\\Users\\natep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020TestGroup10\\obj\\",
+        "projectPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\Fall2020TestGroup10.csproj",
+        "packagesPath": "C:\\Users\\EthanLevin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020TestGroup10\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\natep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EthanLevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -116,8 +116,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
-                "projectPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj"
+              "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
+                "projectPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj"
               }
             }
           }

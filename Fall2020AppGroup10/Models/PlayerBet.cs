@@ -7,32 +7,28 @@ using System.Threading.Tasks;
 
 namespace Fall2020AppGroup10.Models
 {
-    public class PlayerBet
+    public class PlayerBet : Bet //player bet is only to bet if a player reaches a specific statistic i.e. 10 rebounds
     {
-        [Key]
-        public int PlayerBetID { get; set; }
-
+        
         [Required]
-        public decimal StrikeValue { get; set; }
+        public decimal StrikeValue { get; set; } // the value user bets for any given statistic
         [Column(TypeName = "decimal(18,2)")]
 
         [NotMapped]
-        public string BetType { get; set; }
+        public string BetStat { get; set; } // the statistic the user is betting on
 
 
-        public int PlayerGameID { get; set; }
-        [ForeignKey("PlayerGameID")]
+       
 
-        public PlayerGame PlayerGame { get; set; }
+        
 
-        public List<Bet> Bet { get; set; }
-
-        public PlayerBet(decimal strikeValue, string betType, int playerGameID)
+        public PlayerBet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, decimal strikeValue, string betStat, int playerGameID) :
+            base(amountPlaced, startDate, endDate, result, userID, odds, "Player", playerGameID, null)
         {
             this.StrikeValue = strikeValue;
-            this.BetType = betType;
-            this.PlayerGameID = playerGameID;
-            this.Bet = new List<Bet>();
+            this.BetStat = betStat;
+            
+            
         }
 
         public PlayerBet() { }
