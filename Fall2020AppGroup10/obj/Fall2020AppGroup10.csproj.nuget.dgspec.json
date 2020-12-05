@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {}
+    "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
+    "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
+        "projectUniqueName": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
         "projectName": "Fall2020AppGroup10",
-        "projectPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
-        "packagesPath": "C:\\Users\\EthanLevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EthanLevin\\source\\repos\\Fall2020AppGroup10\\Fall2020AppGroup10\\obj\\",
+        "projectPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\Fall2020AppGroup10.csproj",
+        "packagesPath": "C:\\Users\\natep\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natep\\source\\repos\\Fall2020AppGroup10.2\\Fall2020AppGroup10\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\EthanLevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\natep\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

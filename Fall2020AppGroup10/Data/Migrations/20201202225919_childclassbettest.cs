@@ -293,7 +293,7 @@ namespace Fall2020AppGroup10.Data.Migrations
                         column: x => x.PlayerGameID,
                         principalTable: "PlayerGame",
                         principalColumn: "PlayerGameID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -330,7 +330,7 @@ namespace Fall2020AppGroup10.Data.Migrations
                 column: "PlayerBetID",
                 principalTable: "PlayerBet",
                 principalColumn: "PlayerBetID",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
     }
 }
