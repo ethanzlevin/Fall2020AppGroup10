@@ -7,46 +7,50 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-public class BetTest
+
+namespace Fall2020TestGroup10
 {
-    private Mock<IBetRepo> mockBetRepo;
-
-    [Fact]
-    public void ShouldListAllBets()
+    public class BetTest
     {
-        mockBetRepo = new Mock<IBetRepo>();
+        private Mock<IBetRepo> mockBetRepo;
 
-        List<Bet> mockBets = CreateMockBetData();
-        mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
+        [Fact]
+        public void ShouldListAllBets()
+        {
+            mockBetRepo = new Mock<IBetRepo>();
 
-        int expectedNumberOfBetsInList = 3;
+            List<Bet> mockBets = CreateMockBetData();
+            mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
 
-        BetController betController = new BetController(mockBetRepo.Object);
+            int expectedNumberOfBetsInList = 3;
 
-        ViewResult result = betController.ListAllBets() as ViewResult;
-        List<Bet> resultModel = result.Model as List<Bet>;
-        int actualNumberOfBetsInList = resultModel.Count;
+            BetController betController = new BetController(mockBetRepo.Object);
 
-        Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
+            ViewResult result = betController.ListAllBets() as ViewResult;
+            List<Bet> resultModel = result.Model as List<Bet>;
+            int actualNumberOfBetsInList = resultModel.Count;
 
-    }
+            Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
 
-    public List<Bet> CreateMockBetData()
-    {
-        List<Bet> mockBets = new List<Bet>();
+        }
 
-        DateTime startdate = new DateTime(2020, 11, 9);
-        DateTime enddate = new DateTime(2020, 11, 11);
+        public List<Bet> CreateMockBetData()
+        {
+            List<Bet> mockBets = new List<Bet>();
 
-        //Bet bet = new Bet(14.99m, 50.87m, startdate, enddate, "Correct", "1", 1, null);
-        //mockBets.Add(bet);
+            DateTime startdate = new DateTime(2020, 11, 9);
+            DateTime enddate = new DateTime(2020, 11, 11);
 
-        //bet = new Bet(5.55m, 20.47m, startdate, enddate, "Wrong", "2", null, 1);
-        //mockBets.Add(bet);
+            //Bet bet = new Bet(14.99m, 50.87m, startdate, enddate, "Correct", "1", 1, null);
+            //mockBets.Add(bet);
 
-        //bet = new Bet(50.69m, 125.90m, startdate, enddate, "Wrong", "3", null, 2);
-        //mockBets.Add(bet);
+            //bet = new Bet(5.55m, 20.47m, startdate, enddate, "Wrong", "2", null, 1);
+            //mockBets.Add(bet);
 
-        return mockBets;
+            //bet = new Bet(50.69m, 125.90m, startdate, enddate, "Wrong", "3", null, 2);
+            //mockBets.Add(bet);
+
+            return mockBets;
+        }
     }
 }

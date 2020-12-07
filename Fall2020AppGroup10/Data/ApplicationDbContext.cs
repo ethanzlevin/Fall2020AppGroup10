@@ -25,8 +25,6 @@ namespace Fall2020AppGroup10.Data
 
         public DbSet<Payment> Payment { get; set; }
 
-        
-
         public DbSet<GameBet> GameBet { get; set; }
 
         public DbSet<PlayerBet> PlayerBet { get; set; }

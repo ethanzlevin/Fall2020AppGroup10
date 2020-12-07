@@ -7,46 +7,85 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-public class GameTest
+
+namespace Fall2020TestGroup10
 {
-    private Mock<IGameRepo> mockGameRepo;
-
-    [Fact]
-    public void ShouldListAllGames()
+    public class GameTest
     {
-        mockGameRepo = new Mock<IGameRepo>();
+        private Mock<IGameRepo> mockGameRepo;
 
-        List<Game> mockGames = CreateMockGameData();
-        mockGameRepo.Setup(m => m.ListAllGames()).Returns(mockGames);
+        [Fact]
+        public void ShouldListAllGames()
+        {
+            mockGameRepo = new Mock<IGameRepo>();
 
-        int expectedNumberOfGamesInList = 3;
+            List<Game> mockGames = CreateMockGameData();
+            mockGameRepo.Setup(m => m.ListAllGames()).Returns(mockGames);
 
-        GameController gameController = new GameController(mockGameRepo.Object);
+            int expectedNumberOfGamesInList = 3;
 
-        ViewResult result = gameController.ListAllGames() as ViewResult;
-        List<Game> resultModel = result.Model as List<Game>;
-        int actualNumberOfGamesInList = resultModel.Count;
+            GameController gameController = new GameController(mockGameRepo.Object);
 
-        Assert.Equal(expectedNumberOfGamesInList, actualNumberOfGamesInList);
+            ViewResult result = gameController.ListAllGames() as ViewResult;
+            List<Game> resultModel = result.Model as List<Game>;
+            int actualNumberOfGamesInList = resultModel.Count;
 
-    }
+            Assert.Equal(expectedNumberOfGamesInList, actualNumberOfGamesInList);
 
-    public List<Game> CreateMockGameData()
-    {
-        List<Game> mockGames= new List<Game>();
+        }
 
-        DateTime GameTime = new DateTime(2020, 11, 9);
-       
 
-        Game game = new Game(GameTime, true, 35, 1, 2);
-        mockGames.Add(game);
+        [Fact]
+        public void ShouldSearchForGameByDate()
+        {
+            mockGameRepo = new Mock<IGameRepo>();
 
-        game = new Game(GameTime, false, 74, 3, 5);
-        mockGames.Add(game);
+            List<Game> mockGames = CreateMockGameData();
+            mockGameRepo.Setup(m => m.ListAllGames()).Returns(mockGames);
 
-        game = new Game(GameTime, true, 43, 8, 9);
-        mockGames.Add(game);
+            int expectedNumberOfGameInList = 1;
 
-        return mockGames;
+            GameController gameController = new GameController(mockGameRepo.Object);
+
+
+            
+            int? homeID = null;
+            int? awayID = null;
+            DateTime? startDate = new DateTime(2020, 11, 1);
+            DateTime? endDate = new DateTime(2020, 11, 30);
+
+            ViewResult result = gameController.SearchForGames(homeID, awayID, startDate, endDate) as ViewResult;
+            List<Game> resultModel = result.Model as List<Game>;
+            int actualNumberOfGamesInList = resultModel.Count;
+
+            Assert.Equal(expectedNumberOfGameInList, actualNumberOfGamesInList);
+
+
+
+        }
+
+
+
+        public List<Game> CreateMockGameData()
+        {
+            List<Game> mockGames = new List<Game>();
+
+            DateTime GameTime = new DateTime(2020, 11, 9);
+
+            Game game = new Game(GameTime, true, 35, 1, 2);
+            mockGames.Add(game);
+
+            GameTime = new DateTime(2020, 10, 19);
+
+            game = new Game(GameTime, false, 74, 3, 5);
+            mockGames.Add(game);
+
+            GameTime = new DateTime(2020, 11, 29);
+
+            game = new Game(GameTime, true, 43, 8, 9);
+            mockGames.Add(game);
+
+            return mockGames;
+        }
     }
 }

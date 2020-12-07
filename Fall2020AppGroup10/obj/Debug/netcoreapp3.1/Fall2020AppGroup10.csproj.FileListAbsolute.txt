@@ -563,7 +563,6 @@ C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\bin\Debug\ne
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csprojAssemblyReference.cache
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.AssemblyInfoInputs.cache
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.AssemblyInfo.cs
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csproj.CoreCompileInputs.cache
@@ -764,3 +763,7 @@ C:\Users\EthanLevin\source\repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug
 C:\Users\EthanLevin\source\repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.dll
 C:\Users\EthanLevin\source\repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.pdb
 C:\Users\EthanLevin\source\repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.genruntimeconfig.cache
+C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\ListAllGames.cshtml.g.cs
+C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGameUserInput.cshtml.g.cs
+C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGames.cshtml.g.cs
+C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csprojAssemblyReference.cache

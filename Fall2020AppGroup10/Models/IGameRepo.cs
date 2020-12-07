@@ -8,5 +8,7 @@ namespace Fall2020AppGroup10.Models
     public interface IGameRepo
     {
         List<Game> ListAllGames();
+
+        List<Team> ListAllTeams();
     }
 }
