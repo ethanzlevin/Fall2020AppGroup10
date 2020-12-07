@@ -19,7 +19,7 @@ namespace Fall2020AppGroup10.Controllers
             this.iGameRepo = gameRepo;
         }
 
-        [Authorize(Roles = "Employee, User")]
+        //[Authorize(Roles = "Employee, User")]
         public IActionResult ListAllGames()
         {
             List<Game> allGames = iGameRepo.ListAllGames();
@@ -30,7 +30,7 @@ namespace Fall2020AppGroup10.Controllers
 
         public IActionResult SearchForGameUserInput()
         {
-            ViewData["AllTeams"] = new SelectList(iGameRepo.ListAllTeams(), "TeamID", "Name");
+            ViewData["AllTeams"] = new SelectList(iGameRepo.ListAllTeams(), "HomeID", "Name");
 
             SearchForGamesViewModel searchForGamesViewModel = new SearchForGamesViewModel();
 
@@ -40,9 +40,14 @@ namespace Fall2020AppGroup10.Controllers
 
 
 
-        public IActionResult SearchForGames(int? homeID, int? awayID, DateTime? startDate, DateTime? endDate)
+        public IActionResult SearchForGames(int? teamID, int? homeID, int? awayID, DateTime? startDate, DateTime? endDate)
         {
             List<Game> searchList = iGameRepo.ListAllGames();
+
+            if (homeID.HasValue)
+            {
+                searchList = searchList.Where(g => g.HomeID == teamID).ToList();
+            }
 
             if (homeID.HasValue)
             {

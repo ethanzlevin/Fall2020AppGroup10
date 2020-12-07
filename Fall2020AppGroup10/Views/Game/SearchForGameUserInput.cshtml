@@ -1,49 +1,43 @@
-﻿@model IEnumerable<Game>
+﻿@model SearchForGamesViewModel
+@{
+    ViewData["Tile"] = "SearchForGamesUserInput";
+}
 
-<h4> Search Result</h4>
+<h3> SearchForGameUserInput</h3>
+<h6> All selections are optional</h6>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th> Date</th>
-            <th> Favorite</th>
-            <th> Score</th>
-            <th> Home Team</th>
-            <th> Away Team</th>
-        </tr>
+<form asp-controller="Game" asp-action="SearchForGames" method="post">
 
-    </thead>
+    <div class="form-group">
+        <label> Choose a Home Team</label>
+        <select asp-for="HomeID" asp-items="ViewBag.AllGames" class="form-control">
+            <option value="">None</option>
+        </select>
 
-    <tbody>
+    </div>
 
-        @foreach (Game eachGame in Model)
-        {
-        <tr>
-            <td>@eachGame.Date</td>
+    <div class="form-group">
+        <label> Choose a Away Team</label>
+        <select asp-for="AwayID" asp-items="ViewBag.AllGames" class="form-control">
+            <option value="">None</option>
+        </select>
 
-            @if (eachGame.Favorite.HasValue)
-            {
-                <td>@eachGame.Favorite</td>
-            }
+    </div>
 
-            @if (eachGame.Score.HasValue)
-            {
-                <td>@eachGame.Score</td>
-            }
+    <div class="form-group">
+        <label>Game should be after</label>
+        <input asp-for="StartDate" class="form=control" />
+    </div>
 
-            <td>@eachGame.HomeID</td>
+    <div class="form-group">
+        <label>Game should be before</label>
+        <input asp-for="EndDate" class="form=control" />
+    </div>
 
-            <td>@eachGame.AwayID</td>
-
-
-
-        </tr>
-
-        }
+    <button type="submit" class="btn btn-primary">Search for Games</button>
 
 
-    </tbody>
+</form>
 
 
-</table>
 

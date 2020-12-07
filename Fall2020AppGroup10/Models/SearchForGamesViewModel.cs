@@ -8,6 +8,7 @@ namespace Fall2020AppGroup10.Models
 {
     public class SearchForGamesViewModel
     {
+        public int TeamID { get; set; }
         public int? HomeID { get; set; }
         public int? AwayID { get; set; }
         
