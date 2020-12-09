@@ -767,3 +767,9 @@ C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\ne
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGameUserInput.cshtml.g.cs
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGames.cshtml.g.cs
 C:\Users\natep\source\repos\Fall2020AppGroup10.2\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csprojAssemblyReference.cache
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\ListAllGames.cshtml.g.cs
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGames.cshtml.g.cs
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGameUserInput.cshtml.g.cs
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Bet\ListAllBets.cshtml.g.cs
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Bet\SearchForBets.cshtml.g.cs
+C:\Users\EthanLevin\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Bet\SearchForBetsUserInput.cshtml.g.cs

@@ -22,11 +22,31 @@ namespace Fall2020TestGroup10
             List<Bet> mockBets = CreateMockBetData();
             mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
 
-            int expectedNumberOfBetsInList = 3;
+            int expectedNumberOfBetsInList = 4;
 
             BetController betController = new BetController(mockBetRepo.Object);
 
             ViewResult result = betController.ListAllBets() as ViewResult;
+            List<Bet> resultModel = result.Model as List<Bet>;
+            int actualNumberOfBetsInList = resultModel.Count;
+
+            Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
+
+        }
+        [Fact]
+        public void ShouldSearchAllBetsByUser()
+        {
+            mockBetRepo = new Mock<IBetRepo>();
+
+            List<Bet> mockBets = CreateMockBetData();
+            mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
+
+
+            int expectedNumberOfBetsInList = 2;
+            string userid = "2";
+            BetController betController = new BetController(mockBetRepo.Object);
+
+            ViewResult result = betController.SearchAllBets(userid) as ViewResult;
             List<Bet> resultModel = result.Model as List<Bet>;
             int actualNumberOfBetsInList = resultModel.Count;
 
@@ -40,16 +60,23 @@ namespace Fall2020TestGroup10
 
             DateTime startdate = new DateTime(2020, 11, 9);
             DateTime enddate = new DateTime(2020, 11, 11);
+            decimal amt = 105;
 
-            //Bet bet = new Bet(14.99m, 50.87m, startdate, enddate, "Correct", "1", 1, null);
-            //mockBets.Add(bet);
+            bool win = true;
 
-            //bet = new Bet(5.55m, 20.47m, startdate, enddate, "Wrong", "2", null, 1);
-            //mockBets.Add(bet);
+            
 
-            //bet = new Bet(50.69m, 125.90m, startdate, enddate, "Wrong", "3", null, 2);
-            //mockBets.Add(bet);
 
+            PlayerBet playerbet = new PlayerBet(amt, startdate, enddate, win, "1" , 100, 19, "Rebounds", 5);
+            mockBets.Add(playerbet);
+             playerbet = new PlayerBet(amt, startdate, enddate, true, "2", 100, 19, "Rebounds", 5);
+            mockBets.Add(playerbet);
+            playerbet = new PlayerBet(amt, startdate, enddate, true, "2", 100, 19, "Rebounds", 5);
+            mockBets.Add(playerbet);
+            playerbet = new PlayerBet(amt, startdate, enddate, true, "3", 100, 19, "Rebounds", 5);
+            mockBets.Add(playerbet);
+
+            
             return mockBets;
         }
     }

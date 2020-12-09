@@ -18,8 +18,16 @@ namespace Fall2020AppGroup10.Models
 
         public List<Bet> ListAllBets()
         {
-            List<Bet> bets = database.Bet.Include(b => b.UserID).ToList();
+            List<Bet> bets = database.Bet.ToList();
             return bets;
         }
+
+
+        public List<User> ListAllUsers()
+        {
+            List<User> user = database.User.ToList();
+            return user;
+        }
+
     }
 }

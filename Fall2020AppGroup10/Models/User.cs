@@ -12,6 +12,8 @@ namespace Fall2020AppGroup10.Models
 
         public List<Payment> UserPayment { get; set; }
 
+
+
         public User(string firstName, string lastName, string address, string phoneNumber, string email, string password) :
             base(firstName, lastName, address, phoneNumber, email, password)
         {

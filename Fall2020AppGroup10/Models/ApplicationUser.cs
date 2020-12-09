@@ -18,6 +18,12 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public string Address { get; set; }
 
+        public string FullName
+        {
+            get
+            { return (FirstName + " " + LastName); }
+        }
+
         public ApplicationUser(string firstName, string lastName, string address, string phoneNumber, string email, string password)
         {
             this.FirstName = firstName;

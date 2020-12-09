@@ -8,5 +8,7 @@ namespace Fall2020AppGroup10.Models
     public interface IBetRepo
     {
         List<Bet> ListAllBets();
+
+        List<User> ListAllUsers();
     }
 }
