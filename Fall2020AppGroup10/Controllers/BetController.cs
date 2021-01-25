@@ -32,7 +32,7 @@ namespace Fall2020AppGroup10.Controllers
         {
             //Dynamic drop down list of clients from DB
 
-            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "UserName", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
+            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
             SearchForBetsViewModel searchForBetsViewModel = new SearchForBetsViewModel();
 
