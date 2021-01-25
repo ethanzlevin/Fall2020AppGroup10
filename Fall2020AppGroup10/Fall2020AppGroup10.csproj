@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201006190859_AddedTables.cs" />
+    <Compile Remove="Data\Migrations\20201006190859_AddedTables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201006201613_AddedDbInitializer.cs" />
+    <Compile Remove="Data\Migrations\20201006201613_AddedDbInitializer.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201006203254_AddedPlayerValues.cs" />
+    <Compile Remove="Data\Migrations\20201006203254_AddedPlayerValues.Designer.cs" />
     <Compile Remove="Data\Migrations\20201007184343_AddedController.cs" />
     <Compile Remove="Data\Migrations\20201007184343_AddedController.Designer.cs" />
     <Compile Remove="Data\Migrations\20201007185817_AddedTestTeam.cs" />
@@ -30,10 +36,18 @@
     <Compile Remove="Data\Migrations\20201116012849_AddedClasses.Designer.cs" />
     <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.cs" />
     <Compile Remove="Data\Migrations\20201116180031_UpdatedPlayerGame.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201117192116_AddedRemainingClasses.cs" />
+    <Compile Remove="Data\Migrations\20201117192116_AddedRemainingClasses.Designer.cs" />
     <Compile Remove="Data\Migrations\20201202214451_betfixed.cs" />
     <Compile Remove="Data\Migrations\20201202214451_betfixed.Designer.cs" />
     <Compile Remove="Data\Migrations\20201202224225_childclassbettest.cs" />
     <Compile Remove="Data\Migrations\20201202224225_childclassbettest.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201202225919_childclassbettest.cs" />
+    <Compile Remove="Data\Migrations\20201202225919_childclassbettest.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210125183708_allTables.cs" />
+    <Compile Remove="Data\Migrations\20210125183708_allTables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210125183819_allTables.cs" />
+    <Compile Remove="Data\Migrations\20210125183819_allTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fall2020AppGroup10.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201006201613_AddedDbInitializer")]
-    partial class AddedDbInitializer
+    [Migration("20210125184139_allTables")]
+    partial class allTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,112 @@ namespace Fall2020AppGroup10.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Bet", b =>
+                {
+                    b.Property<int>("BetID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("AmountPlaced")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("BetType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("GameID")
+                        .HasColumnType("int");
+
+                    b.Property<short>("Odds")
+                        .HasColumnType("smallint");
+
+                    b.Property<decimal?>("Payout")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PlayerGameID")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Result")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BetID");
+
+                    b.HasIndex("GameID");
+
+                    b.HasIndex("PlayerGameID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Bet");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Bet");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Game", b =>
+                {
+                    b.Property<int>("GameID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AwayID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("Favorite")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("HomeID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("GameID");
+
+                    b.HasIndex("AwayID");
+
+                    b.ToTable("Game");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("StartingDeposit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PaymentID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Payment");
+                });
 
             modelBuilder.Entity("Fall2020AppGroup10.Models.Player", b =>
                 {
@@ -63,7 +169,49 @@ namespace Fall2020AppGroup10.Data.Migrations
 
                     b.HasKey("PlayerID");
 
+                    b.HasIndex("TeamID");
+
                     b.ToTable("Player");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.PlayerGame", b =>
+                {
+                    b.Property<int>("PlayerGameID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Assists")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Blocks")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Fouls")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GameDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GameID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Points")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Rebounds")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlayerGameID");
+
+                    b.HasIndex("GameID");
+
+                    b.HasIndex("PlayerID");
+
+                    b.ToTable("PlayerGame");
                 });
 
             modelBuilder.Entity("Fall2020AppGroup10.Models.Team", b =>
@@ -159,6 +307,10 @@ namespace Fall2020AppGroup10.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -210,6 +362,8 @@ namespace Fall2020AppGroup10.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -296,6 +450,128 @@ namespace Fall2020AppGroup10.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Fall2020AppGroup10.Models.GameBet", b =>
+                {
+                    b.HasBaseType("Fall2020AppGroup10.Models.Bet");
+
+                    b.Property<int?>("GameID1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WinningTeam")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasIndex("GameID1");
+
+                    b.HasDiscriminator().HasValue("GameBet");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.PlayerBet", b =>
+                {
+                    b.HasBaseType("Fall2020AppGroup10.Models.Bet");
+
+                    b.Property<int?>("PlayerGameID1")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("StrikeValue")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasIndex("PlayerGameID1");
+
+                    b.HasDiscriminator().HasValue("PlayerBet");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Employee", b =>
+                {
+                    b.HasBaseType("Fall2020AppGroup10.Models.ApplicationUser");
+
+                    b.Property<int>("HoursWorked")
+                        .HasColumnType("int");
+
+                    b.HasDiscriminator().HasValue("Employee");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.User", b =>
+                {
+                    b.HasBaseType("Fall2020AppGroup10.Models.ApplicationUser");
+
+                    b.HasDiscriminator().HasValue("User");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Bet", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameID");
+
+                    b.HasOne("Fall2020AppGroup10.Models.PlayerGame", "PlayerGame")
+                        .WithMany()
+                        .HasForeignKey("PlayerGameID");
+
+                    b.HasOne("Fall2020AppGroup10.Models.User", "User")
+                        .WithMany("UserBets")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Game", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.Team", "Team")
+                        .WithMany("Game")
+                        .HasForeignKey("AwayID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Payment", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.User", "User")
+                        .WithMany("UserPayment")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.Player", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.Team", "Team")
+                        .WithMany("PlayersOnTeam")
+                        .HasForeignKey("TeamID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.PlayerGame", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.Game", "Game")
+                        .WithMany("PlayerGame")
+                        .HasForeignKey("GameID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Fall2020AppGroup10.Models.Player", "Player")
+                        .WithMany("PlayerGame")
+                        .HasForeignKey("PlayerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -345,6 +621,20 @@ namespace Fall2020AppGroup10.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.GameBet", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.Game", null)
+                        .WithMany("GameBet")
+                        .HasForeignKey("GameID1");
+                });
+
+            modelBuilder.Entity("Fall2020AppGroup10.Models.PlayerBet", b =>
+                {
+                    b.HasOne("Fall2020AppGroup10.Models.PlayerGame", null)
+                        .WithMany("PlayerBet")
+                        .HasForeignKey("PlayerGameID1");
                 });
 #pragma warning restore 612, 618
         }

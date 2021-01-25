@@ -13,11 +13,12 @@ namespace Fall2020AppGroup10.Models
         public int BetID { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
+
         public decimal AmountPlaced { get; set; }
         [Column(TypeName = "decimal(18,2)")]
 
         public decimal? Payout { get; set; } // the amount won or lost only populated after bet clears
-        [Column(TypeName = "decimal(18,2)")]
 
         public short Odds { get; set; } // its a short so we can have negative odds
 

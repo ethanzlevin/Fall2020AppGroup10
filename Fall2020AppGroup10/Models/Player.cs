@@ -31,21 +31,27 @@ namespace Fall2020AppGroup10.Models
         public int RookieYear { get; set; }//it is int becasue we only want the year, the datetime is to specific and is not needed
         
         [Required]
-        public decimal Salary { get; set; }
         [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18,2)")]
+
+        public decimal Salary { get; set; }
+        
 
         //Statistics for the player
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
+
         public decimal PointsPerGame { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
+
         public decimal AssistsPerGame { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
 
         [Required]
-        public decimal FieldGoalPercent { get; set; }
         [Column(TypeName = "decimal(18,2)")]
+
+        public decimal FieldGoalPercent { get; set; }
 
         [ForeignKey("TeamID")]
         public Team Team { get; set; }

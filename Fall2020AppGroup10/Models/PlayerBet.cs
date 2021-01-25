@@ -11,8 +11,9 @@ namespace Fall2020AppGroup10.Models
     {
         
         [Required]
-        public decimal StrikeValue { get; set; } // the value user bets for any given statistic
         [Column(TypeName = "decimal(18,2)")]
+        public decimal StrikeValue { get; set; } // the value user bets for any given statistic
+        
 
         [NotMapped]
         public string BetStat { get; set; } // the statistic the user is betting on

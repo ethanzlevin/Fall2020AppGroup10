@@ -15,8 +15,7 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required]
-        public string Address { get; set; }
+       
 
         public string FullName
         {
@@ -28,7 +27,7 @@ namespace Fall2020AppGroup10.Models
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.Address = address;
+            
             this.PhoneNumber = phoneNumber;
             this.Email = email;
             this.UserName = email;

@@ -3,15 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Fall2020AppGroup10.Data.Migrations
 {
-    public partial class AddedRemainingClasses : Migration
+    public partial class allTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Address",
-                table: "AspNetUsers",
-                nullable: true);
-
             migrationBuilder.AddColumn<string>(
                 name: "FirstName",
                 table: "AspNetUsers",
@@ -32,6 +27,44 @@ namespace Fall2020AppGroup10.Data.Migrations
                 table: "AspNetUsers",
                 nullable: false,
                 defaultValue: "");
+
+            migrationBuilder.CreateTable(
+                name: "Payment",
+                columns: table => new
+                {
+                    PaymentID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    StartingDeposit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UserID = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payment", x => x.PaymentID);
+                    table.ForeignKey(
+                        name: "FK_Payment_AspNetUsers_UserID",
+                        column: x => x.UserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Team",
+                columns: table => new
+                {
+                    TeamID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
+                    City = table.Column<string>(nullable: false),
+                    Division = table.Column<string>(nullable: false),
+                    Wins = table.Column<int>(nullable: false),
+                    Losses = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Team", x => x.TeamID);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Game",
@@ -57,45 +90,30 @@ namespace Fall2020AppGroup10.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Payment",
+                name: "Player",
                 columns: table => new
                 {
-                    PaymentID = table.Column<int>(nullable: false)
+                    PlayerID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Balance = table.Column<decimal>(nullable: false),
-                    StartingDeposit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    UserID = table.Column<string>(nullable: false)
+                    TeamID = table.Column<int>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    DOB = table.Column<DateTime>(nullable: false),
+                    Position = table.Column<string>(nullable: false),
+                    RookieYear = table.Column<int>(nullable: false),
+                    Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PointsPerGame = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    AssistsPerGame = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    FieldGoalPercent = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Payment", x => x.PaymentID);
+                    table.PrimaryKey("PK_Player", x => x.PlayerID);
                     table.ForeignKey(
-                        name: "FK_Payment_AspNetUsers_UserID",
-                        column: x => x.UserID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GameBet",
-                columns: table => new
-                {
-                    GameBetID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Odds = table.Column<decimal>(nullable: true),
-                    HomeScore = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    AwayScore = table.Column<int>(nullable: true),
-                    GameID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GameBet", x => x.GameBetID);
-                    table.ForeignKey(
-                        name: "FK_GameBet_Game_GameID",
-                        column: x => x.GameID,
-                        principalTable: "Game",
-                        principalColumn: "GameID",
+                        name: "FK_Player_Team_TeamID",
+                        column: x => x.TeamID,
+                        principalTable: "Team",
+                        principalColumn: "TeamID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -128,27 +146,7 @@ namespace Fall2020AppGroup10.Data.Migrations
                         column: x => x.PlayerID,
                         principalTable: "Player",
                         principalColumn: "PlayerID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PlayerBet",
-                columns: table => new
-                {
-                    PlayerBetID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StrikeValue = table.Column<decimal>(nullable: false),
-                    PlayerGameID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PlayerBet", x => x.PlayerBetID);
-                    table.ForeignKey(
-                        name: "FK_PlayerBet_PlayerGame_PlayerGameID",
-                        column: x => x.PlayerGameID,
-                        principalTable: "PlayerGame",
-                        principalColumn: "PlayerGameID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,51 +155,65 @@ namespace Fall2020AppGroup10.Data.Migrations
                 {
                     BetID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AmountPlaced = table.Column<decimal>(nullable: false),
-                    Payout = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    AmountPlaced = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Payout = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Odds = table.Column<short>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: true),
-                    Result = table.Column<string>(nullable: true),
+                    Result = table.Column<bool>(nullable: true),
+                    BetType = table.Column<string>(nullable: false),
                     UserID = table.Column<string>(nullable: false),
-                    PlayerBetID = table.Column<int>(nullable: false),
-                    GameBetID = table.Column<int>(nullable: true)
+                    PlayerGameID = table.Column<int>(nullable: true),
+                    GameID = table.Column<int>(nullable: true),
+                    Discriminator = table.Column<string>(nullable: false),
+                    WinningTeam = table.Column<string>(nullable: true),
+                    GameID1 = table.Column<int>(nullable: true),
+                    StrikeValue = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    PlayerGameID1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bet", x => x.BetID);
                     table.ForeignKey(
-                        name: "FK_Bet_GameBet_GameBetID",
-                        column: x => x.GameBetID,
-                        principalTable: "GameBet",
-                        principalColumn: "GameBetID",
+                        name: "FK_Bet_Game_GameID",
+                        column: x => x.GameID,
+                        principalTable: "Game",
+                        principalColumn: "GameID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Bet_PlayerBet_PlayerBetID",
-                        column: x => x.PlayerBetID,
-                        principalTable: "PlayerBet",
-                        principalColumn: "PlayerBetID",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Bet_PlayerGame_PlayerGameID",
+                        column: x => x.PlayerGameID,
+                        principalTable: "PlayerGame",
+                        principalColumn: "PlayerGameID",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bet_AspNetUsers_UserID",
                         column: x => x.UserID,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Bet_Game_GameID1",
+                        column: x => x.GameID1,
+                        principalTable: "Game",
+                        principalColumn: "GameID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bet_PlayerGame_PlayerGameID1",
+                        column: x => x.PlayerGameID1,
+                        principalTable: "PlayerGame",
+                        principalColumn: "PlayerGameID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Player_TeamID",
-                table: "Player",
-                column: "TeamID");
+                name: "IX_Bet_GameID",
+                table: "Bet",
+                column: "GameID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bet_GameBetID",
+                name: "IX_Bet_PlayerGameID",
                 table: "Bet",
-                column: "GameBetID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bet_PlayerBetID",
-                table: "Bet",
-                column: "PlayerBetID");
+                column: "PlayerGameID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bet_UserID",
@@ -209,14 +221,19 @@ namespace Fall2020AppGroup10.Data.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bet_GameID1",
+                table: "Bet",
+                column: "GameID1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bet_PlayerGameID1",
+                table: "Bet",
+                column: "PlayerGameID1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Game_AwayID",
                 table: "Game",
                 column: "AwayID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GameBet_GameID",
-                table: "GameBet",
-                column: "GameID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payment_UserID",
@@ -224,9 +241,9 @@ namespace Fall2020AppGroup10.Data.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlayerBet_PlayerGameID",
-                table: "PlayerBet",
-                column: "PlayerGameID");
+                name: "IX_Player_TeamID",
+                table: "Player",
+                column: "TeamID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PlayerGame_GameID",
@@ -237,22 +254,10 @@ namespace Fall2020AppGroup10.Data.Migrations
                 name: "IX_PlayerGame_PlayerID",
                 table: "PlayerGame",
                 column: "PlayerID");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Player_Team_TeamID",
-                table: "Player",
-                column: "TeamID",
-                principalTable: "Team",
-                principalColumn: "TeamID",
-                onDelete: ReferentialAction.NoAction);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Player_Team_TeamID",
-                table: "Player");
-
             migrationBuilder.DropTable(
                 name: "Bet");
 
@@ -260,24 +265,16 @@ namespace Fall2020AppGroup10.Data.Migrations
                 name: "Payment");
 
             migrationBuilder.DropTable(
-                name: "GameBet");
-
-            migrationBuilder.DropTable(
-                name: "PlayerBet");
-
-            migrationBuilder.DropTable(
                 name: "PlayerGame");
 
             migrationBuilder.DropTable(
                 name: "Game");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Player_TeamID",
-                table: "Player");
+            migrationBuilder.DropTable(
+                name: "Player");
 
-            migrationBuilder.DropColumn(
-                name: "Address",
-                table: "AspNetUsers");
+            migrationBuilder.DropTable(
+                name: "Team");
 
             migrationBuilder.DropColumn(
                 name: "FirstName",

@@ -43,8 +43,8 @@ namespace Fall2020AppGroup10.Data.Migrations
                     b.Property<int?>("GameID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Odds")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<short>("Odds")
+                        .HasColumnType("smallint");
 
                     b.Property<decimal?>("Payout")
                         .HasColumnType("decimal(18,2)");
@@ -482,10 +482,6 @@ namespace Fall2020AppGroup10.Data.Migrations
             modelBuilder.Entity("Fall2020AppGroup10.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
