@@ -48,13 +48,13 @@ namespace Fall2020TestGroup10
             GameController gameController = new GameController(mockGameRepo.Object);
 
 
-            int? teamID = null;
+            
             int? homeID = null;
             int? awayID = null;
             DateTime? startDate = new DateTime(2020, 11, 1);
             DateTime? endDate = new DateTime(2020, 11, 30);
 
-            ViewResult result = gameController.SearchForGames(teamID, homeID, awayID, startDate, endDate) as ViewResult;
+            ViewResult result = gameController.SearchForGames(homeID, awayID, startDate, endDate) as ViewResult;
             List<Game> resultModel = result.Model as List<Game>;
             int actualNumberOfGamesInList = resultModel.Count;
 
