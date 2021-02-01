@@ -40,14 +40,11 @@ namespace Fall2020AppGroup10.Controllers
 
 
 
-        public IActionResult SearchForGames(int? teamID, int? homeID, int? awayID, DateTime? startDate, DateTime? endDate)
+        public IActionResult SearchForGames(int? homeID, int? awayID, DateTime? startDate, DateTime? endDate)
         {
             List<Game> searchList = iGameRepo.ListAllGames();
 
-            if (homeID.HasValue)
-            {
-                searchList = searchList.Where(g => g.HomeID == teamID).ToList();
-            }
+           
 
             if (homeID.HasValue)
             {
@@ -61,7 +58,7 @@ namespace Fall2020AppGroup10.Controllers
 
             if (startDate.HasValue)
             {
-                searchList = searchList.Where(g => g.Date <= startDate.Value.Date).ToList();
+                searchList = searchList.Where(g => g.Date >= startDate.Value.Date).ToList();
             }
 
             if (endDate.HasValue)

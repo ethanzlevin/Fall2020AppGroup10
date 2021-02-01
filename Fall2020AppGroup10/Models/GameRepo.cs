@@ -18,7 +18,7 @@ namespace Fall2020AppGroup10.Models
 
         public List<Game> ListAllGames()
         {
-            List<Game> games = database.Game.Include(g => g.GameBet).ToList();
+            List<Game> games = database.Game.ToList();
             return games;
         }
 
