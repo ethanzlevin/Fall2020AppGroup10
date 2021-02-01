@@ -32,7 +32,48 @@ namespace Fall2020AppGroup10.Controllers
             return View(allTeams);
         }
 
+        public IActionResult SearchForTeams(SearchForTeamsViewModel viewModel)
+        {
+            List<Team> searchList = iTeamRepo.ListAllTeams();
 
+            if(!string.IsNullOrEmpty(viewModel.Name))
+            {
+                searchList = searchList.Where(p => p.Name == viewModel.Name).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(viewModel.City))
+            {
+                searchList = searchList.Where(p => p.City == viewModel.City).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(viewModel.Division))
+            {
+                searchList = searchList.Where(p => p.Division == viewModel.Division).ToList();
+            }
+
+            if (viewModel.MinWins != null)
+            {
+                searchList = searchList.Where(p => p.Wins >= viewModel.MinWins).ToList();
+            }
+            if (viewModel.MaxWins != null)
+            {
+                searchList = searchList.Where(p => p.Wins <= viewModel.MaxWins).ToList();
+            }
+
+
+
+            if (viewModel.MinLosses != null)
+            {
+                searchList = searchList.Where(p => p.Losses >= viewModel.MinLosses).ToList();
+            }
+            if (viewModel.MaxLosses != null)
+            {
+                searchList = searchList.Where(p => p.Losses <= viewModel.MaxLosses).ToList();
+            }
+
+            viewModel.ResultTeamList = searchList;
+            return View(viewModel);
+        }
         
     }
 }
