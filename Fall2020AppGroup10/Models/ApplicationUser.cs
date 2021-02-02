@@ -31,9 +31,9 @@ namespace Fall2020AppGroup10.Models
             this.PhoneNumber = phoneNumber;
             this.Email = email;
             this.UserName = email;
-            this.PasswordHash = password;
+            
             PasswordHasher<ApplicationUser> passwordHasher = new PasswordHasher<ApplicationUser>();
-            passwordHasher.HashPassword(this, password);
+            this.PasswordHash = passwordHasher.HashPassword(this, password);
             this.SecurityStamp = Guid.NewGuid().ToString();
         }
 

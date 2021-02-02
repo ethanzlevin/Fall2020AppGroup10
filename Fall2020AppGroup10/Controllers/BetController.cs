@@ -40,7 +40,7 @@ namespace Fall2020AppGroup10.Controllers
         //}
 
         //[Authorize(Roles = "Employee")]
-        public IActionResult SearchAllBets(SearchForBetsViewModel searchForBets)
+        public IActionResult SearchForBets(SearchForBetsViewModel searchForBets)
         {
             ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
