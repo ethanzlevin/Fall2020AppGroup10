@@ -13,7 +13,7 @@ namespace Fall2020AppGroup10.Models
         public List<Bet> BetResultList { get; set; }
 
 
-
+        public string FirstVisit { get; set; }
 
     }
 }

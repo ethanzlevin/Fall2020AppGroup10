@@ -28,23 +28,18 @@ namespace Fall2020AppGroup10.Controllers
         }
 
 
-        //public IActionResult SearchForBetsUserInput()
-        //{
-        //    //Dynamic drop down list of clients from DB
-
-        //    ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
-
-        //    SearchForBetsViewModel searchForBetsViewModel = new SearchForBetsViewModel();
-
-        //    return View(searchForBetsViewModel);
-        //}
-
-        //[Authorize(Roles = "Employee")]
+        
         public IActionResult SearchForBets(SearchForBetsViewModel searchForBets)
         {
             ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
-            List<Bet> searchList = iBetRepo.ListAllBets();
+            List<Bet> searchList;
+
+            if (searchForBets.FirstVisit != "No")
+            { searchList = null; }
+            else
+            { searchList = iBetRepo.ListAllBets(); }
+
 
             if (searchForBets.UserID != null)
             {

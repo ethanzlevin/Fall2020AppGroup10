@@ -33,26 +33,29 @@ namespace Fall2020TestGroup10
             Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
 
         }
-        //[Fact]
-        //public void ShouldSearchAllBetsByUser()
-        //{
-        //    mockBetRepo = new Mock<IBetRepo>();
+        [Fact]
+        public void ShouldSearchAllBetsByUser()
+        {
+            mockBetRepo = new Mock<IBetRepo>();
 
-        //    List<Bet> mockBets = CreateMockBetData();
-        //    mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
+            List<Bet> mockBets = CreateMockBetData();
+            mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
+            mockBetRepo.Setup(m => m.ListAllUsers()).Returns(new List<User>());
 
 
-        //    int expectedNumberOfBetsInList = 2;
-        //    string serid = "2";
-        //    BetController betController = new BetController(mockBetRepo.Object);
+            int expectedNumberOfBetsInList = 2;
+            SearchForBetsViewModel viewModel = new SearchForBetsViewModel();
+            viewModel.UserID = "2";
+            BetController betController = new BetController(mockBetRepo.Object);
 
-        //    ViewResult result = betController.SearchAllBets(userid) as ViewResult;
-        //    List<Bet> resultModel = result.Model as List<Bet>;
-        //    int actualNumberOfBetsInList = resultModel.Count;
+            ViewResult result = betController.SearchForBets(viewModel) as ViewResult;
 
-        //    Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
+            SearchForBetsViewModel resultModel = result.Model as SearchForBetsViewModel;
+            int actualNumberOfBetsInList = resultModel.BetResultList.Count;
 
-        //}
+            Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
+
+        }
 
         public List<Bet> CreateMockBetData()
         {
