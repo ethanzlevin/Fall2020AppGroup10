@@ -33,26 +33,26 @@ namespace Fall2020TestGroup10
             Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
 
         }
-        [Fact]
-        public void ShouldSearchAllBetsByUser()
-        {
-            mockBetRepo = new Mock<IBetRepo>();
+        //[Fact]
+        //public void ShouldSearchAllBetsByUser()
+        //{
+        //    mockBetRepo = new Mock<IBetRepo>();
 
-            List<Bet> mockBets = CreateMockBetData();
-            mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
+        //    List<Bet> mockBets = CreateMockBetData();
+        //    mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
 
 
-            int expectedNumberOfBetsInList = 2;
-            string userid = "2";
-            BetController betController = new BetController(mockBetRepo.Object);
+        //    int expectedNumberOfBetsInList = 2;
+        //    string serid = "2";
+        //    BetController betController = new BetController(mockBetRepo.Object);
 
-            ViewResult result = betController.SearchAllBets(userid) as ViewResult;
-            List<Bet> resultModel = result.Model as List<Bet>;
-            int actualNumberOfBetsInList = resultModel.Count;
+        //    ViewResult result = betController.SearchAllBets(userid) as ViewResult;
+        //    List<Bet> resultModel = result.Model as List<Bet>;
+        //    int actualNumberOfBetsInList = resultModel.Count;
 
-            Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
+        //    Assert.Equal(expectedNumberOfBetsInList, actualNumberOfBetsInList);
 
-        }
+        //}
 
         public List<Bet> CreateMockBetData()
         {

@@ -28,28 +28,31 @@ namespace Fall2020AppGroup10.Controllers
         }
 
 
-        public IActionResult SearchForBetsUserInput()
-        {
-            //Dynamic drop down list of clients from DB
+        //public IActionResult SearchForBetsUserInput()
+        //{
+        //    //Dynamic drop down list of clients from DB
 
-            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
+        //    ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
-            SearchForBetsViewModel searchForBetsViewModel = new SearchForBetsViewModel();
+        //    SearchForBetsViewModel searchForBetsViewModel = new SearchForBetsViewModel();
 
-            return View(searchForBetsViewModel);
-        }
+        //    return View(searchForBetsViewModel);
+        //}
 
         //[Authorize(Roles = "Employee")]
-        public IActionResult SearchAllBets(string userID)
+        public IActionResult SearchAllBets(SearchForBetsViewModel searchForBets)
         {
-            List<Bet> allBets = iBetRepo.ListAllBets();
+            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
-            if (userID != null)
+            List<Bet> searchList = iBetRepo.ListAllBets();
+
+            if (searchForBets.UserID != null)
             {
-                allBets = allBets.Where(b => b.UserID == userID).ToList();
+                searchList = searchList.Where(b => b.UserID == searchForBets.UserID).ToList();
             }
+            searchForBets.BetResultList = searchList;
 
-            return View(allBets);
+            return View(searchForBets);
         }
     }
 }
