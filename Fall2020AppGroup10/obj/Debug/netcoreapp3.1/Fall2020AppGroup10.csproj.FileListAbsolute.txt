@@ -779,3 +779,4 @@ C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netc
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGames.cshtml.g.cs
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Game\SearchForGameUserInput.cshtml.g.cs
 C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Razor\Views\Team\SearchForTeams.cshtml.g.cs
+C:\Users\natep\Source\Repos\Fall2020AppGroup10\Fall2020AppGroup10\obj\Debug\netcoreapp3.1\Fall2020AppGroup10.csprojAssemblyReference.cache

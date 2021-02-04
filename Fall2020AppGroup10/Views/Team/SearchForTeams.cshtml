@@ -7,9 +7,12 @@
 <h5>All selections are optional</h5>
 
 <form asp-controller="Team" asp-action="SearchForTeams" method="post">
+    
+    <input asp-for="UserFirstVisit" value="No" type="hidden" />
+    
     <div class="form-group">
         <label> Choose Team</label>
-        <select asp-for="Name" class="form-control">
+        <select asp-for="Name" asp-items="ViewBag.ListAllTeams" class="form-control">
             <option value="">None</option>
         </select>
     </div>
@@ -59,40 +62,44 @@
 
 <h4>Search Result</h4>
 
-@if (Model.ResultTeamList.Any())
+@if (Model.ResultTeamList != null)
 {
-    <table>
-        <thead>
-            <tr>
-                <th> Team Name</th>
-                <th> Team City</th>
-                <th> Division</th>
-                <th> Wins</th>
-                <th> Losses</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            @foreach (Team eachTeam in Model.ResultTeamList)
-            {
+    @if (Model.ResultTeamList.Any())
+    {
+        <table>
+            <thead>
                 <tr>
-                    <td>@eachTeam.Name</td>
-                    <td>@eachTeam.City</td>
-                    <td>@eachTeam.Division</td>
-                    <td>@eachTeam.Wins</td>
-                    <td>@eachTeam.Losses</td>
+                    <th> Team Name</th>
+                    <th> Team City</th>
+                    <th> Division</th>
+                    <th> Wins</th>
+                    <th> Losses</th>
                 </tr>
-            }
+            </thead>
 
-        </tbody>
+            <tbody>
+                @foreach (Team eachTeam in Model.ResultTeamList)
+                {
+                    <tr>
+                        <td>@eachTeam.Name</td>
+                        <td>@eachTeam.City</td>
+                        <td>@eachTeam.Division</td>
+                        <td>@eachTeam.Wins</td>
+                        <td>@eachTeam.Losses</td>
+                    </tr>
+                }
 
-    </table>
+            </tbody>
 
-}
+        </table>
 
-else
-{
-    <h4> No teams meet your search criteria</h4>
+    }
+
+    else
+    {
+        <h4> No teams meet your search criteria</h4>
+    }
 }
 
 

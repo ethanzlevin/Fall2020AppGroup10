@@ -70,6 +70,7 @@ namespace Fall2020TestGroup10
             viewModel.MaxWins = maxWins;
             viewModel.MinLosses = minLosses;
             viewModel.MaxLosses = maxLosses;
+            viewModel.UserFirstVisit = "No";
 
             ViewResult result = teamController.SearchForTeams(viewModel) as ViewResult;
             SearchForTeamsViewModel resultModel = result.Model as SearchForTeamsViewModel;
@@ -97,6 +98,7 @@ namespace Fall2020TestGroup10
             int? maxWins = null;
             int? minLosses = null;
             int? maxLosses = null;
+            
 
             SearchForTeamsViewModel viewModel = new SearchForTeamsViewModel();
             viewModel.Name = teamName;
@@ -106,6 +108,7 @@ namespace Fall2020TestGroup10
             viewModel.MaxWins = maxWins;
             viewModel.MinLosses = minLosses;
             viewModel.MaxLosses = maxLosses;
+            viewModel.UserFirstVisit = "No";
 
             ViewResult result = teamController.SearchForTeams(viewModel) as ViewResult;
             SearchForTeamsViewModel resultModel = result.Model as SearchForTeamsViewModel;
@@ -133,6 +136,7 @@ namespace Fall2020TestGroup10
             int? maxWins = null;
             int? minLosses = null;
             int? maxLosses = null;
+            
 
             SearchForTeamsViewModel viewModel = new SearchForTeamsViewModel();
             viewModel.Name = teamName;
@@ -142,6 +146,7 @@ namespace Fall2020TestGroup10
             viewModel.MaxWins = maxWins;
             viewModel.MinLosses = minLosses;
             viewModel.MaxLosses = maxLosses;
+            viewModel.UserFirstVisit = "No";
 
             ViewResult result = teamController.SearchForTeams(viewModel) as ViewResult;
             SearchForTeamsViewModel resultModel = result.Model as SearchForTeamsViewModel;

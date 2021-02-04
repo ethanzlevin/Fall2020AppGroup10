@@ -16,6 +16,8 @@ namespace Fall2020AppGroup10.Models
         public int? MinLosses { get; set; }
         public int? MaxLosses { get; set; }
 
+        public string UserFirstVisit { get; set; }
+
         public List<Team> ResultTeamList { get; set; }
     }
 }
