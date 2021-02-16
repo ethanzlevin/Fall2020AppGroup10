@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Fall2020AppGroup10.Models
 {
-    public interface ITeamRepo
+    public interface IPlayerRepo
     {
-        List<Team> ListAllTeams();
-
-        int AddTeam(Team team);
+        
+        void AddPlayer(Player player);
     }
 }
