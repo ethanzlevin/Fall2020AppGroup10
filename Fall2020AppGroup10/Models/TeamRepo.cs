@@ -16,6 +16,13 @@ namespace Fall2020AppGroup10.Models
             this.database = dbContext;
         }
 
+        public int AddTeam(Team team)
+        {
+            database.Team.Add(team);
+            database.SaveChanges();
+            return team.TeamID;
+        }
+
         public List<Team> ListAllTeams()
         {
             List<Team> teams = database.Team.Include(p => p.PlayersOnTeam).ToList();

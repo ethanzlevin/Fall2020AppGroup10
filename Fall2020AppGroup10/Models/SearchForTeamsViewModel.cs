@@ -4,6 +4,10 @@ namespace Fall2020AppGroup10.Models
 {
     public class SearchForTeamsViewModel
     {
+
+        public int? TeamID { get; set; }
+
+        public int? TeamID1 { get; set; }
         
         public string Name { get; set; }
         public string City { get; set; }

@@ -14,13 +14,36 @@ namespace Fall2020AppGroup10.Controllers
     {
 
         private ITeamRepo iTeamRepo;
+        private IPlayerRepo iPlayerRepo;
 
         //private ApplicationDbContext database;
 
-        public TeamController(ITeamRepo teamRepo) //ApplicationDbContext dbContext)
+        public TeamController(ITeamRepo teamRepo, IPlayerRepo playerRepo) //ApplicationDbContext dbContext)
         {
             this.iTeamRepo = teamRepo;
+            this.iPlayerRepo = playerRepo;
             //this.database = dbContext; 
+        }
+
+        public void AddTeam(Team team)
+        {
+            if(ModelState.IsValid)
+            {
+                int teamID = iTeamRepo.AddTeam(team);
+
+                string firstName = "FirstName";
+                string lastName = "LastName";
+                DateTime dob = new DateTime(1984, 12, 30);
+                string position = "C";
+                int rookieYear = 2005;
+                decimal salary = 0.0m;
+                decimal pointsPerGame = 0.0m;
+                decimal assistsPerGame = 0.0m;
+                decimal feildGoalPercent = 0.0m;
+
+                Player player = new Player(teamID, firstName, lastName, dob, position, rookieYear, salary,  pointsPerGame, assistsPerGame, feildGoalPercent);
+                iPlayerRepo.AddPlayer(player);
+            }
         }
 
         [Authorize(Roles = "User, Employee")]
@@ -35,7 +58,8 @@ namespace Fall2020AppGroup10.Controllers
 
         public IActionResult SearchForTeams(SearchForTeamsViewModel viewModel)
         {
-            //ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "Name");
+            ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+            ViewData["AllCities"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "City");
 
             List<Team> searchList; //= iTeamRepo.ListAllTeams();
 
@@ -47,6 +71,17 @@ namespace Fall2020AppGroup10.Controllers
             else
             {
                 searchList = iTeamRepo.ListAllTeams();
+
+                //if (!string.IsNullOrEmpty(viewModel.TeamID))
+                if (viewModel.TeamID != null)
+                {
+                    searchList = searchList.Where(p => p.TeamID == viewModel.TeamID).ToList();
+                }
+
+                if (viewModel.TeamID1 != null)
+                {
+                    searchList = searchList.Where(p => p.TeamID == viewModel.TeamID1).ToList();
+                }
 
                 if (!string.IsNullOrEmpty(viewModel.Name))
                 {

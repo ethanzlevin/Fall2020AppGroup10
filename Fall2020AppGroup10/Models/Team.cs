@@ -11,13 +11,13 @@ namespace Fall2020AppGroup10.Models
         [Key]
         public int TeamID { get; set; }
         
-        [Required]
+        [Required (ErrorMessage = "Team must be an NBA team")]
         public string Name { get; set; }
 
         [Required]
         public string City { get; set; }
         
-        [Required]
+        [Required (ErrorMessage = "Division must be East or West")]
         public string Division { get; set; }
 
         [Required]
