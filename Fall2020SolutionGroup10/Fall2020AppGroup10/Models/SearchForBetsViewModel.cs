@@ -10,10 +10,10 @@ namespace Fall2020AppGroup10.Models
     {
         public string UserID { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? StartDate { get; set; }
+        public List<Bet> BetResultList { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? EndDate { get; set; }
+
+        public string FirstVisit { get; set; }
+
     }
 }

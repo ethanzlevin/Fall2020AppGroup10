@@ -1,0 +1,77 @@
+﻿@model SearchForBetsViewModel
+@{
+    ViewData["Title"] = "SearchForBets";
+}
+
+<h1>Search For Bets User Input</h1>
+<h6>Select a User</h6>
+
+
+<form asp-controller="Bet" asp-action="SearchForBets" method="post">
+    <input asp-for="FirstVisit" value="No" type ="hidden" />
+
+    <div class="form-group">
+        <label> Choose </label>
+        <select asp-for="UserID" asp-items="ViewBag.AllUsers" class="form-control">
+        </select>
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Search for Users Bets</button>
+</form>
+
+@if (Model.BetResultList != null)
+{
+    @if (Model.BetResultList.Any())
+    {
+<h4> Search Result </h4>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> User</th>
+            <th> Wagered</th>
+            <th> Start Date</th>
+            <th> End Date</th>
+            <th> User Win</th>
+            <th> Odds</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Bet eachBet in Model.BetResultList)
+        {
+            <tr>
+
+                <td>@eachBet.UserID </td>
+
+
+                <td>@eachBet.AmountPlaced</td>
+                <td>@eachBet.StartDate</td>
+
+                <td>@eachBet.EndDate</td>
+                <td>@eachBet.Result</td>
+                <td>@eachBet.Odds</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+    }
+    else
+    { <h3>The Selected user Has not placed a bet</h3>}
+
+    }
+
+
+
+
+
+
+

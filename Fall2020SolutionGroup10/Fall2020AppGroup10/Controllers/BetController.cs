@@ -28,28 +28,26 @@ namespace Fall2020AppGroup10.Controllers
         }
 
 
-        public IActionResult SearchForBetsUserInput()
+        
+        public IActionResult SearchForBets(SearchForBetsViewModel searchForBets)
         {
-            //Dynamic drop down list of clients from DB
-
             ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
 
-            SearchForBetsViewModel searchForBetsViewModel = new SearchForBetsViewModel();
+            List<Bet> searchList;
 
-            return View(searchForBetsViewModel);
-        }
+            if (searchForBets.FirstVisit != "No")
+            { searchList = null; }
+            else
+            { searchList = iBetRepo.ListAllBets(); }
 
-        //[Authorize(Roles = "Employee")]
-        public IActionResult SearchAllBets(string userID)
-        {
-            List<Bet> allBets = iBetRepo.ListAllBets();
 
-            if (userID != null)
+            if (searchForBets.UserID != null)
             {
-                allBets = allBets.Where(b => b.UserID == userID).ToList();
+                searchList = searchList.Where(b => b.UserID == searchForBets.UserID).ToList();
             }
+            searchForBets.BetResultList = searchList;
 
-            return View(allBets);
+            return View(searchForBets);
         }
     }
 }
