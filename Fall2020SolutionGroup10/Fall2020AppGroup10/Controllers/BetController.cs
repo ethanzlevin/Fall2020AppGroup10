@@ -49,5 +49,15 @@ namespace Fall2020AppGroup10.Controllers
 
             return View(searchForBets);
         }
+        
+        public void AddBet(GameBet gameBet)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBet(PlayerBet playerBet)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

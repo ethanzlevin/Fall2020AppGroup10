@@ -10,5 +10,8 @@ namespace Fall2020AppGroup10.Models
         List<Bet> ListAllBets();
 
         List<User> ListAllUsers();
+        void AddBet(PlayerBet playerBet);
+        
+        void AddBet(GameBet gameBet);
     }
 }

@@ -16,6 +16,16 @@ namespace Fall2020AppGroup10.Models
             this.database = dbContext;
         }
 
+        public void AddBet(PlayerBet playerBet)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBet(GameBet gameBet)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Bet> ListAllBets()
         {
             List<Bet> bets = database.Bet.ToList();

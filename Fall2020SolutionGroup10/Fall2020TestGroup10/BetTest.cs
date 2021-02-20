@@ -13,18 +13,48 @@ namespace Fall2020TestGroup10
     public class BetTest
     {
         private Mock<IBetRepo> mockBetRepo;
+        private BetController betController;
+
+        public BetTest()
+        {
+            mockBetRepo = new Mock<IBetRepo>();
+            betController = new BetController(mockBetRepo.Object);
+
+        }
+        [Fact]
+        public void ShouldPlaceBet()
+        {
+            PlayerBet playerBet = new PlayerBet(10, new DateTime(2021, 02, 20), null, null, "005", -199, 10, "Rebounds", 10);
+
+            GameBet gameBet = new GameBet(10, new DateTime(2021, 02, 20), null, null, "004", 240, "Home", 20);
+
+            mockBetRepo.Setup(m => m.AddBet(playerBet));
+
+            mockBetRepo.Setup(m => m.AddBet(gameBet));
+
+
+            betController.AddBet(gameBet);
+            betController.AddBet(playerBet);
+
+
+        }
+        [Fact]
+        public void ShouldNotPlaceBet()
+        {
+
+        }
 
         [Fact]
         public void ShouldListAllBets()
         {
-            mockBetRepo = new Mock<IBetRepo>();
+            
 
             List<Bet> mockBets = CreateMockBetData();
             mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
 
             int expectedNumberOfBetsInList = 4;
 
-            BetController betController = new BetController(mockBetRepo.Object);
+            
 
             ViewResult result = betController.ListAllBets() as ViewResult;
             List<Bet> resultModel = result.Model as List<Bet>;
@@ -36,7 +66,7 @@ namespace Fall2020TestGroup10
         [Fact]
         public void ShouldSearchAllBetsByUser()
         {
-            mockBetRepo = new Mock<IBetRepo>();
+          
 
             List<Bet> mockBets = CreateMockBetData();
             mockBetRepo.Setup(m => m.ListAllBets()).Returns(mockBets);
@@ -46,7 +76,6 @@ namespace Fall2020TestGroup10
             int expectedNumberOfBetsInList = 2;
             SearchForBetsViewModel viewModel = new SearchForBetsViewModel();
             viewModel.UserID = "2";
-            BetController betController = new BetController(mockBetRepo.Object);
 
             ViewResult result = betController.SearchForBets(viewModel) as ViewResult;
 
