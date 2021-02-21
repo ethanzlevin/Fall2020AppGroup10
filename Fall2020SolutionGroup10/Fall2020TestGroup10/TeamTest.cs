@@ -11,22 +11,41 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace Fall2020TestGroup10
-{    
+{
     public class TeamTest
     {
         private Mock<ITeamRepo> mockTeamRepo;
         private Mock<IPlayerRepo> mockPlayerRepo;
 
         private TeamController teamController;
-        
+
 
 
         public TeamTest()
         {
             mockTeamRepo = new Mock<ITeamRepo>();
+            mockPlayerRepo = new Mock<IPlayerRepo>();
 
-            teamController = new TeamController(mockTeamRepo.Object);
+            teamController = new TeamController(mockTeamRepo.Object, mockPlayerRepo.Object);
         }
+
+        /*
+
+        [Fact]
+        public void ShouldEditTeam()
+        {
+            //1. Arrange
+            Team team = new Team("Test Name Edit", "Test City Edit", "Test Division Edit", 10, 10);
+            team.TeamID = 50;
+            mockTeamRepo.Setup(m => m.EditTeam(It.IsAny<Team>()));
+
+            //2. Act
+            teamController.EditTeam(team);
+
+            //3. Assert
+            mockTeamRepo.Verify(m => m.EditTeam(team), Times.Exactly(1));
+        }
+        */
 
         [Fact]
         public void ShouldAddNewTeam()
@@ -45,9 +64,31 @@ namespace Fall2020TestGroup10
 
             //3. Assert (verification)
             mockTeamRepo.Verify(t => t.AddTeam(team), Times.Exactly(1));
-            
 
 
+
+            /*   Data From Controller
+            string firstName = "FirstName";
+            string lastName = "LastName";
+            DateTime dob = new DateTime(1984, 12, 30);
+            string position = "C";
+            int rookieYear = 2005;
+            decimal salary = 0.0m;
+            decimal pointsPerGame = 0.0m;
+            decimal assistsPerGame = 0.0m;
+            decimal feildGoalPercent = 0.0m;
+            */
+
+            DateTime TestPlayerDOB = new DateTime(1984, 12, 30);
+
+            Assert.Equal("FirstName", player.FirstName);
+            Assert.Equal("LastName", player.LastName);
+            Assert.Equal(TestPlayerDOB, player.DOB);
+            Assert.Equal(2005, player.RookieYear);
+            Assert.Equal(0.0m, player.Salary);
+            Assert.Equal(0.0m, player.PointsPerGame);
+            Assert.Equal(0.0m, player.AssistsPerGame);
+            Assert.Equal(0.0m, player.FieldGoalPercent);
 
 
 
@@ -193,7 +234,7 @@ namespace Fall2020TestGroup10
             int? maxWins = null;
             int? minLosses = null;
             int? maxLosses = null;
-            
+
 
             SearchForTeamsViewModel viewModel = new SearchForTeamsViewModel();
             viewModel.Name = teamName;
@@ -231,7 +272,7 @@ namespace Fall2020TestGroup10
             int? maxWins = null;
             int? minLosses = null;
             int? maxLosses = null;
-            
+
 
             SearchForTeamsViewModel viewModel = new SearchForTeamsViewModel();
             viewModel.Name = teamName;
