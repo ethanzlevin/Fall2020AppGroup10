@@ -12,7 +12,7 @@ namespace Fall2020AppGroup10.Models
         [Key]
         public int BetID { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Must Give a valid dollar amount")]
         [Column(TypeName = "decimal(18,2)")]
 
         public decimal AmountPlaced { get; set; }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Xunit;
 
@@ -47,7 +48,16 @@ namespace Fall2020TestGroup10
         [Fact]
         public void ShouldNotPlaceBet()
         {
+            PlayerBet playerBet = new PlayerBet();
+            GameBet gameBet = new GameBet();
+           
 
+            var validatoinResult = new List<ValidationResult>();
+
+            bool isValid = Validator.TryValidateObject(playerBet,new ValidationContext(playerBet) , validatoinResult);
+
+            Assert.False(isValid);
+            
         }
 
         [Fact]
@@ -82,6 +92,7 @@ namespace Fall2020TestGroup10
             int expectedNumberOfBetsInList = 2;
             SearchForBetsViewModel viewModel = new SearchForBetsViewModel();
             viewModel.UserID = "2";
+            viewModel.FirstVisit = "No";
 
             ViewResult result = betController.SearchForBets(viewModel) as ViewResult;
 
