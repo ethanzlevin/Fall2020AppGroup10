@@ -52,24 +52,26 @@ namespace Fall2020AppGroup10.Controllers
             return View(searchForBets);
         }
         [HttpPost]
-        public void AddBet(GameBet gameBet)
+        public void AddGameBet(GameBet gameBet)
         {
            
             gameBet.UserID = iApplicationUserRepo.FindUserID();
             if(ModelState.IsValid)
             {
-                iBetRepo.AddBet(gameBet);
+                iBetRepo.AddGameBet(gameBet);
             }
 
         }
         [HttpPost]
-        public void AddBet(PlayerBet playerBet)
+        public void AddPlayerBet(PlayerBet playerBet)
         {
             playerBet.UserID = iApplicationUserRepo.FindUserID();
             if (ModelState.IsValid)
             {
-                iBetRepo.AddBet(playerBet);
+                iBetRepo.AddPlayerBet(playerBet);
             }
         }
+        
+      
     }
 }

@@ -16,13 +16,13 @@ namespace Fall2020AppGroup10.Models
             this.database = dbContext;
         }
 
-        public void AddBet(PlayerBet playerBet)
+        public void AddPlayerBet(PlayerBet playerBet)
         {
             database.Bet.Add(playerBet);
             database.SaveChanges();
         }
 
-        public void AddBet(GameBet gameBet)
+        public void AddGameBet(GameBet gameBet)
         {
             database.Bet.Add(gameBet);
             database.SaveChanges();

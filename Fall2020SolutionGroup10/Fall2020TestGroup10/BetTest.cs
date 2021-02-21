@@ -31,16 +31,16 @@ namespace Fall2020TestGroup10
 
             GameBet gameBet = new GameBet(10, new DateTime(2021, 02, 20), null, null, "004", 240, "Home", 20);
 
-            mockBetRepo.Setup(m => m.AddBet(playerBet));
+            mockBetRepo.Setup(m => m.AddPlayerBet(playerBet));
 
-            mockBetRepo.Setup(m => m.AddBet(gameBet));
+            mockBetRepo.Setup(m => m.AddGameBet(gameBet));
 
 
-            betController.AddBet(gameBet);
-            betController.AddBet(playerBet);
+            betController.AddGameBet(gameBet);
+            betController.AddPlayerBet(playerBet);
 
-            mockBetRepo.Verify(m => m.AddBet(playerBet), Times.Exactly(1));
-            mockBetRepo.Verify(m => m.AddBet(gameBet), Times.Exactly(1));
+            mockBetRepo.Verify(m => m.AddPlayerBet(playerBet), Times.Exactly(1));
+            mockBetRepo.Verify(m => m.AddGameBet(gameBet), Times.Exactly(1));
 
 
 
