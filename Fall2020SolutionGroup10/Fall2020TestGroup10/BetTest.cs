@@ -14,11 +14,13 @@ namespace Fall2020TestGroup10
     {
         private Mock<IBetRepo> mockBetRepo;
         private BetController betController;
+        private Mock<IApplicationUserRepo> mockApplicationUserRepo;
 
         public BetTest()
         {
             mockBetRepo = new Mock<IBetRepo>();
-            betController = new BetController(mockBetRepo.Object);
+            mockApplicationUserRepo = new Mock<IApplicationUserRepo>();
+            betController = new BetController(mockBetRepo.Object, mockApplicationUserRepo.Object);
 
         }
         [Fact]
@@ -35,6 +37,10 @@ namespace Fall2020TestGroup10
 
             betController.AddBet(gameBet);
             betController.AddBet(playerBet);
+
+            mockBetRepo.Verify(m => m.AddBet(playerBet), Times.Exactly(1));
+            mockBetRepo.Verify(m => m.AddBet(gameBet), Times.Exactly(1));
+
 
 
         }

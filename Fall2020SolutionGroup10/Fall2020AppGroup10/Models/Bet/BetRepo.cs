@@ -18,12 +18,14 @@ namespace Fall2020AppGroup10.Models
 
         public void AddBet(PlayerBet playerBet)
         {
-            throw new NotImplementedException();
+            database.Bet.Add(playerBet);
+            database.SaveChanges();
         }
 
         public void AddBet(GameBet gameBet)
         {
-            throw new NotImplementedException();
+            database.Bet.Add(gameBet);
+            database.SaveChanges();
         }
 
         public List<Bet> ListAllBets()

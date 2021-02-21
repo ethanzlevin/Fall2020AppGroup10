@@ -13,10 +13,12 @@ namespace Fall2020AppGroup10.Controllers
     {
 
         private IBetRepo iBetRepo;
+        private IApplicationUserRepo iApplicationUserRepo;
 
-        public BetController(IBetRepo betRepo)
+        public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo)
         {
             this.iBetRepo = betRepo;
+            this.iApplicationUserRepo = applicationUserRepo;
         }
 
         //[Authorize(Roles = "Employee")]
@@ -49,15 +51,25 @@ namespace Fall2020AppGroup10.Controllers
 
             return View(searchForBets);
         }
-        
+        [HttpPost]
         public void AddBet(GameBet gameBet)
         {
-            throw new NotImplementedException();
-        }
+           
+            gameBet.UserID = iApplicationUserRepo.FindUserID();
+            if(ModelState.IsValid)
+            {
+                iBetRepo.AddBet(gameBet);
+            }
 
+        }
+        [HttpPost]
         public void AddBet(PlayerBet playerBet)
         {
-            throw new NotImplementedException();
+            playerBet.UserID = iApplicationUserRepo.FindUserID();
+            if (ModelState.IsValid)
+            {
+                iBetRepo.AddBet(playerBet);
+            }
         }
     }
 }

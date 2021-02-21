@@ -15,6 +15,7 @@ namespace Fall2020TestGroup10
     {
         private Mock<ITeamRepo> mockTeamRepo;
 
+
         [Fact]
         public void ShouldListAllTeams()
         {
