@@ -27,9 +27,9 @@ namespace Fall2020TestGroup10
         [Fact]
         public void ShouldPlaceBet()
         {
-            PlayerBet playerBet = new PlayerBet(10, new DateTime(2021, 02, 20), null, null, "005", -199, 10, "Rebounds", 10);
+            PlayerBet playerBet = new PlayerBet(10, null, null, "005", -199, 10, "Rebounds", 10);
 
-            GameBet gameBet = new GameBet(10, new DateTime(2021, 02, 20), null, null, "004", 240, "Home", 20);
+            GameBet gameBet = new GameBet(10,  null, null, "004", 240, "Home", 20);
 
             mockBetRepo.Setup(m => m.AddPlayerBet(playerBet));
 
@@ -107,7 +107,6 @@ namespace Fall2020TestGroup10
         {
             List<Bet> mockBets = new List<Bet>();
 
-            DateTime startdate = new DateTime(2020, 11, 9);
             DateTime enddate = new DateTime(2020, 11, 11);
             decimal amt = 105;
 
@@ -116,13 +115,13 @@ namespace Fall2020TestGroup10
             
 
 
-            PlayerBet playerbet = new PlayerBet(amt, startdate, enddate, win, "1" , 100, 19, "Rebounds", 5);
+            PlayerBet playerbet = new PlayerBet(amt, enddate, win, "1" , 100, 19, "Rebounds", 5);
             mockBets.Add(playerbet);
-             playerbet = new PlayerBet(amt, startdate, enddate, true, "2", 100, 19, "Rebounds", 5);
+             playerbet = new PlayerBet(amt,  enddate, true, "2", 100, 19, "Rebounds", 5);
             mockBets.Add(playerbet);
-            playerbet = new PlayerBet(amt, startdate, enddate, true, "2", 100, 19, "Rebounds", 5);
+            playerbet = new PlayerBet(amt,  enddate, true, "2", 100, 19, "Rebounds", 5);
             mockBets.Add(playerbet);
-            playerbet = new PlayerBet(amt, startdate, enddate, true, "3", 100, 19, "Rebounds", 5);
+            playerbet = new PlayerBet(amt,  enddate, true, "3", 100, 19, "Rebounds", 5);
             mockBets.Add(playerbet);
 
             

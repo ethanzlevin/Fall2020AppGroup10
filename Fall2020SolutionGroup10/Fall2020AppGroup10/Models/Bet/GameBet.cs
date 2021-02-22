@@ -17,8 +17,8 @@ namespace Fall2020AppGroup10.Models
 
         
 
-        public GameBet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, string winningTeam, int gameID) :
-            base(amountPlaced, startDate, endDate, result, userID, odds, "Game", null, gameID)
+        public GameBet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, string winningTeam, int gameID) :
+            base(amountPlaced, endDate, result, userID, odds, "Game", null, gameID)
         {
             this.WinningTeam = winningTeam;
             

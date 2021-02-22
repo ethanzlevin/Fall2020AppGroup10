@@ -303,14 +303,14 @@ namespace Fall2020AppGroup10.Data
                 DateTime startdate = new DateTime(2020, 11, 9);
                 DateTime enddate = new DateTime(2020, 11, 11);
 
-                PlayerBet playerBet = new PlayerBet(15.00m, startdate, enddate, null, userID, -120, 10, "Assists", 1);
+                PlayerBet playerBet = new PlayerBet(15.00m, enddate, null, userID, -120, 10, "Assists", 1);
                 database.PlayerBet.Add(playerBet);
                 database.SaveChanges();
 
                 user = database.User.Where(c => c.Email == "TestUser2@test.com").FirstOrDefault();
                 userID = user.Id;
 
-                GameBet gameBet = new GameBet(10.00m, startdate,enddate,null, userID, 200, "Away", 1);
+                GameBet gameBet = new GameBet(10.00m,enddate,null, userID, 200, "Away", 1);
                 database.GameBet.Add(gameBet);
                 database.SaveChanges();
 

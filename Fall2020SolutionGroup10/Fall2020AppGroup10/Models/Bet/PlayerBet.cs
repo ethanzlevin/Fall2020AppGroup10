@@ -23,8 +23,8 @@ namespace Fall2020AppGroup10.Models
 
         
 
-        public PlayerBet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, decimal strikeValue, string betStat, int playerGameID) :
-            base(amountPlaced, startDate, endDate, result, userID, odds, "Player", playerGameID, null)
+        public PlayerBet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, decimal strikeValue, string betStat, int playerGameID) :
+            base(amountPlaced, endDate, result, userID, odds, "Player", playerGameID, null)
         {
             this.StrikeValue = strikeValue;
             this.BetStat = betStat;

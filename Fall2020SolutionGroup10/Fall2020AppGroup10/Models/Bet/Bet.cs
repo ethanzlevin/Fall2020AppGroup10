@@ -51,14 +51,15 @@ namespace Fall2020AppGroup10.Models
         public Game Game { get; set; }
 
 
-        public Bet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, string betType, int? playerGameID, int? gameID)
+        public Bet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, string betType, int? playerGameID, int? gameID)
         {
             this.AmountPlaced = amountPlaced;
             this.Payout = null; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
-            this.StartDate = startDate;
+            this.StartDate = DateTime.Today.Date;
             this.EndDate = null;
             this.Result = null;
             this.UserID = userID;
+            
             this.Odds = odds;
             this.BetType = betType;
             if (betType == "Player")

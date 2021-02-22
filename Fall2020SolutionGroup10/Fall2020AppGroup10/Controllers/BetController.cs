@@ -14,11 +14,13 @@ namespace Fall2020AppGroup10.Controllers
 
         private IBetRepo iBetRepo;
         private IApplicationUserRepo iApplicationUserRepo;
+        private IGameRepo iGameRepo;
 
-        public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo)
+        public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo, IGameRepo gameRepo)
         {
             this.iBetRepo = betRepo;
             this.iApplicationUserRepo = applicationUserRepo;
+            this.iGameRepo = gameRepo;
         }
 
         //[Authorize(Roles = "Employee")]
@@ -52,26 +54,60 @@ namespace Fall2020AppGroup10.Controllers
             return View(searchForBets);
         }
         [HttpPost]
-        public void AddGameBet(GameBet gameBet)
+        public IActionResult AddGameBet(GameBet gameBet)
         {
            
             gameBet.UserID = iApplicationUserRepo.FindUserID();
-            if(ModelState.IsValid)
+            gameBet.BetType = "Game";
+            gameBet.Odds = 100;
+            gameBet.StartDate = DateTime.Today.Date;
+            if (ModelState.IsValid)
             {
                 iBetRepo.AddGameBet(gameBet);
+                return RedirectToAction("ListAllBets");
+            }
+            else
+            {
+                ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+
+                return View();
             }
 
         }
         [HttpPost]
-        public void AddPlayerBet(PlayerBet playerBet)
+        public IActionResult AddPlayerBet(PlayerBet playerBet)
         {
             playerBet.UserID = iApplicationUserRepo.FindUserID();
+            playerBet.Odds = 100; //create a calculate odds method
+            playerBet.BetType = "Player";
             if (ModelState.IsValid)
             {
                 iBetRepo.AddPlayerBet(playerBet);
+                return RedirectToAction("ListAllBets"); // make a list all bets for user
             }
+            else
+            {
+                ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+
+               //create a list all players by team
+
+                return View();
+            }
+
         }
         
-      
+        [HttpGet]
+        public IActionResult AddGameBet()
+        {
+            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddPlayerBet()
+        {
+            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+            return View();
+        }
     }
 }
