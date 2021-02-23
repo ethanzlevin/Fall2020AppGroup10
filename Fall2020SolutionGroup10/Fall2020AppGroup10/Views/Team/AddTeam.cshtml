@@ -1,0 +1,47 @@
+﻿@model Team
+
+@{
+    ViewData["Title"] = "AddTeam";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div asp-validation-summary="All" class="text-danger"> </div>
+
+<form asp-action="AddTeam" asp-controller="Team" method="post">
+    <div class="form-group">
+        <label>Team Name</label>
+        <input asp-for="Name" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Team City</label>
+        <input asp-for="City" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <lable>Choose Division</lable>
+        <select asp-for="Division" class="form-control">
+            <option value="">Unknown</option>
+            <option value="West"> West</option>
+            <option value="East">East</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label>Wins</label>
+        <input asp-for="Wins" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Losses</label>
+        <input asp-for="Losses" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Add Team </button>
+
+</form>
+

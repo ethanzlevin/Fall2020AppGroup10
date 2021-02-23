@@ -30,18 +30,6 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="ListAllTeams">All Teams</a>
                             </li>
-                            @if (User.IsInRole("User"))
-                            {
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Place Bet</a>
-                                    <div class="dropdown-menu">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="AddGameBet">Game Prop</a>
-                                       
-
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="AddPlayerBet">Player Prop</a>
-                                    </div>
-                                </li>
-                            }
 
                             @if (User.IsInRole("Employee"))
                             {
@@ -58,6 +46,22 @@
                                 </li>
                             }
 
+                            @if (User.IsInRole("User") || User.IsInRole("Employee"))
+                            {
+
+                                <li class="nav-link">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Team</a>
+                                    <div class="dropdown-menu">
+
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="ListAllTeams"> All Teams </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="SearchForTeams"> Search For Teams </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="AddTeam"> Add Team </a>
+
+                                    </div>
+                                </li>
+                            }
+
+                        }
                         }
 
 

@@ -25,9 +25,15 @@ namespace Fall2020AppGroup10.Controllers
             //this.database = dbContext; 
         }
 
-        public void AddTeam(Team team)
+        public void EditTeam(Team team)
         {
-            if(ModelState.IsValid)
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public IActionResult AddTeam(Team team)
+        {
+            if (ModelState.IsValid)
             {
                 int teamID = iTeamRepo.AddTeam(team);
 
@@ -41,9 +47,27 @@ namespace Fall2020AppGroup10.Controllers
                 decimal assistsPerGame = 0.0m;
                 decimal feildGoalPercent = 0.0m;
 
-                Player player = new Player(teamID, firstName, lastName, dob, position, rookieYear, salary,  pointsPerGame, assistsPerGame, feildGoalPercent);
+                Player player = new Player(teamID, firstName, lastName, dob, position, rookieYear, salary, pointsPerGame, assistsPerGame, feildGoalPercent);
                 iPlayerRepo.AddPlayer(player);
+                return RedirectToAction("ListAllTeams");
             }
+            else
+            {
+                ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+                ViewData["AllCities"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "City");
+
+
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddTeam()
+        {
+            ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+            ViewData["AllCities"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "City");
+
+            return View();
         }
 
         [Authorize(Roles = "User, Employee")]
@@ -120,6 +144,6 @@ namespace Fall2020AppGroup10.Controllers
             viewModel.ResultTeamList = searchList;
             return View(viewModel);
         }
-        
+
     }
 }
