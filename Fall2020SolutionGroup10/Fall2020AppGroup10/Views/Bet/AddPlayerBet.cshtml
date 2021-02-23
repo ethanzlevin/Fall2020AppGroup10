@@ -9,6 +9,9 @@
 
 <form asp-action="AddPlayerBet" method="post">
 
+    <input type="hidden" name="UserID" value=@ViewBag.UserID />
+    <input type="hidden" name="BetType" value="Player" />
+
     <div class="form-group">
         <label>Wager</label>
         <input asp-for="AmountPlaced" class="form-control" />

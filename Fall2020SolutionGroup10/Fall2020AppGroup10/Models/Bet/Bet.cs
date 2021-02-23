@@ -44,7 +44,7 @@ namespace Fall2020AppGroup10.Models
         [ForeignKey("PlayerGameID")]
 
         public PlayerGame PlayerGame { get; set; }
-
+        [Required]
         public int? GameID { get; set; }
         [ForeignKey("GameID")]
 

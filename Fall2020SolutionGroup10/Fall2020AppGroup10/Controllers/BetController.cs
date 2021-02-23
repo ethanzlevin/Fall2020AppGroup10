@@ -57,29 +57,43 @@ namespace Fall2020AppGroup10.Controllers
         public IActionResult AddGameBet(GameBet gameBet)
         {
            
-            gameBet.UserID = iApplicationUserRepo.FindUserID();
-            gameBet.BetType = "Game";
+            
             gameBet.Odds = 100;
             gameBet.StartDate = DateTime.Today.Date;
-            if (gameBet.GameID.HasValue && gameBet.WinningTeam.Any())
+            if (ModelState.IsValid)
             {
                 iBetRepo.AddGameBet(gameBet);
                 return RedirectToAction("ListAllBets");
             }
             else
             {
+                ViewData["UserID"] = iApplicationUserRepo.FindUserID();
+                
+
                 ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
 
                 return View();
             }
 
         }
+
+        [HttpGet]
+        public IActionResult AddGameBet()
+        {
+
+
+            ViewData["UserID"] = iApplicationUserRepo.FindUserID();
+
+            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+            return View();
+        }
+
         [HttpPost]
         public IActionResult AddPlayerBet(PlayerBet playerBet)
         {
-            playerBet.UserID = iApplicationUserRepo.FindUserID();
+            
             playerBet.Odds = 100; //create a calculate odds method
-            playerBet.BetType = "Player";
+            
             if (ModelState.IsValid)
             {
                 iBetRepo.AddPlayerBet(playerBet);
@@ -87,6 +101,8 @@ namespace Fall2020AppGroup10.Controllers
             }
             else
             {
+
+                ViewData["UserID"] = iApplicationUserRepo.FindUserID();
                 ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
 
                //create a list all players by team
@@ -96,16 +112,13 @@ namespace Fall2020AppGroup10.Controllers
 
         }
         
-        [HttpGet]
-        public IActionResult AddGameBet()
-        {
-            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
-            return View();
-        }
+     
 
         [HttpGet]
         public IActionResult AddPlayerBet()
         {
+
+            ViewData["UserID"] = iApplicationUserRepo.FindUserID();
             ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
             return View();
         }
