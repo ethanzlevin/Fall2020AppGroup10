@@ -61,7 +61,7 @@ namespace Fall2020AppGroup10.Controllers
             gameBet.BetType = "Game";
             gameBet.Odds = 100;
             gameBet.StartDate = DateTime.Today.Date;
-            if (ModelState.IsValid)
+            if (gameBet.GameID.HasValue && gameBet.WinningTeam.Any())
             {
                 iBetRepo.AddGameBet(gameBet);
                 return RedirectToAction("ListAllBets");
@@ -83,7 +83,7 @@ namespace Fall2020AppGroup10.Controllers
             if (ModelState.IsValid)
             {
                 iBetRepo.AddPlayerBet(playerBet);
-                return RedirectToAction("ListAllBets"); // make a list all bets for user
+                return RedirectToAction("ListAllBetsByUser"); // make a list all bets for user
             }
             else
             {
@@ -109,5 +109,16 @@ namespace Fall2020AppGroup10.Controllers
             ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
             return View();
         }
+
+        public IActionResult ListAllBetsByUser()
+        {
+            List<Bet> allBets = iBetRepo.ListAllBets();
+
+            allBets = allBets.Where(b => b.UserID == iApplicationUserRepo.FindUserID()).ToList();
+            
+
+            return View(allBets);
+        }
+
     }
 }
