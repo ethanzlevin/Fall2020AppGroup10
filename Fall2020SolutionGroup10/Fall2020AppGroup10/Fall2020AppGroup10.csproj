@@ -48,6 +48,10 @@
     <Compile Remove="Data\Migrations\20210125183708_allTables.Designer.cs" />
     <Compile Remove="Data\Migrations\20210125183819_allTables.cs" />
     <Compile Remove="Data\Migrations\20210125183819_allTables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210227180819_Test.cs" />
+    <Compile Remove="Data\Migrations\20210227180819_Test.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210227181719_Test.cs" />
+    <Compile Remove="Data\Migrations\20210227181719_Test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

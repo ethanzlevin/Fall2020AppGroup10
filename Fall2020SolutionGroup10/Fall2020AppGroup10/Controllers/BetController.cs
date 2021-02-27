@@ -56,21 +56,21 @@ namespace Fall2020AppGroup10.Controllers
         [HttpPost]
         public IActionResult AddGameBet(GameBet gameBet)
         {
-           
-            
+
+            gameBet.StartDate = DateTime.Now.Date;
             gameBet.Odds = 100;
-            gameBet.StartDate = DateTime.Today.Date;
+            
             if (ModelState.IsValid)
             {
                 iBetRepo.AddGameBet(gameBet);
-                return RedirectToAction("ListAllBets");
+                return RedirectToAction("ListAllBetsByUser");
             }
             else
             {
                 ViewData["UserID"] = iApplicationUserRepo.FindUserID();
                 
 
-                ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+                ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName"); //ask if i can get home vs away using viewbag
 
                 return View();
             }
@@ -84,16 +84,39 @@ namespace Fall2020AppGroup10.Controllers
 
             ViewData["UserID"] = iApplicationUserRepo.FindUserID();
 
-            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+            ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+
+            return View();
+        }
+
+
+       
+        [HttpGet]
+        public void AddPlayerBetOne()
+        {
+            ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+
+        }
+        [HttpPost]
+        public IActionResult AddPlayerBetOne(int gameId) => RedirectToAction("AddPlayerBet"); //maybe?
+
+
+
+        [HttpGet]
+        public IActionResult AddPlayerBet() //meet with someone about this
+        {
+
+            ViewData["UserID"] = iApplicationUserRepo.FindUserID();
+            ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
             return View();
         }
 
         [HttpPost]
         public IActionResult AddPlayerBet(PlayerBet playerBet)
         {
-            
+
             playerBet.Odds = 100; //create a calculate odds method
-            
+
             if (ModelState.IsValid)
             {
                 iBetRepo.AddPlayerBet(playerBet);
@@ -103,24 +126,13 @@ namespace Fall2020AppGroup10.Controllers
             {
 
                 ViewData["UserID"] = iApplicationUserRepo.FindUserID();
-                ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
+                ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
 
-               //create a list all players by team
+                //create a list all players by team
 
                 return View();
             }
 
-        }
-        
-     
-
-        [HttpGet]
-        public IActionResult AddPlayerBet()
-        {
-
-            ViewData["UserID"] = iApplicationUserRepo.FindUserID();
-            ViewData["AllGames"] = new SelectList(iGameRepo.ListAllGames(), "GameID", "HomeID"); //ask if i can get home vs away using viewbag
-            return View();
         }
 
         public IActionResult ListAllBetsByUser()

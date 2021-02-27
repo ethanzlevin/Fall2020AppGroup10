@@ -18,17 +18,22 @@ namespace Fall2020AppGroup10.Models
         [NotMapped]
         public string BetStat { get; set; } // the statistic the user is betting on
 
+        [Required]
+        public int PlayerGameID { get; set; }
+        [ForeignKey("PlayerGameID")]
 
-       
+        public PlayerGame PlayerGame { get; set; }
 
-        
+
+
+
 
         public PlayerBet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, decimal strikeValue, string betStat, int playerGameID) :
-            base(amountPlaced, endDate, result, userID, odds, "Player", playerGameID, null)
+            base(amountPlaced, endDate, result, userID, odds,"Player")
         {
             this.StrikeValue = strikeValue;
             this.BetStat = betStat;
-            
+            this.PlayerGameID = playerGameID;
             
         }
 

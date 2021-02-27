@@ -41,5 +41,30 @@ namespace Fall2020AppGroup10.Models
             return user;
         }
 
+        public List<HomeVsAwayModel> GameDropDown()
+        {
+            var dDData =
+                from G in database.Game
+                join T in database.Team
+                on G.HomeID equals T.TeamID
+
+                from Ga in database.Game
+                join Ta in database.Team
+                on Ga.AwayID equals Ta.TeamID
+
+                select new HomeVsAwayModel
+                {
+                    GameID = G.GameID,
+                    HomeName = T.Name,
+                    AwayName = Ta.Name
+                    
+                };
+            List<HomeVsAwayModel> gameList = dDData.ToList();
+
+            return gameList;
+        }
+
+
+        }
     }
 }

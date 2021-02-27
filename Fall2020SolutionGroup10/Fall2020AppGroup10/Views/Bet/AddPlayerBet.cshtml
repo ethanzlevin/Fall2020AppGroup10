@@ -17,17 +17,11 @@
         <input asp-for="AmountPlaced" class="form-control" />
     </div>
 
-    <div class="form-group">
-        <label> Choose Game</label>
-        <select asp-for="GameID" asp-items="ViewBag.AllGames" class="form-control">
-            <option value="">None</option>
-        </select>
-
-    </div>
+ 
 
     <div class="form-group">
-        <label> Player</label>
-        <select asp-for="PlayerGameID" class="form-control">
+        <label>Choose Player</label>
+        <select asp-for="PlayerGameID"  class="form-control">
             <option value="">None</option>
 
             @*work this out with jaren or nanda*@

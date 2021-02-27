@@ -40,18 +40,10 @@ namespace Fall2020AppGroup10.Models
         public User User { get; set; }
 
         
-        public int? PlayerGameID { get; set; }
-        [ForeignKey("PlayerGameID")]
-
-        public PlayerGame PlayerGame { get; set; }
-        [Required]
-        public int? GameID { get; set; }
-        [ForeignKey("GameID")]
-
-        public Game Game { get; set; }
+      
 
 
-        public Bet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, string betType, int? playerGameID, int? gameID)
+        public Bet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, string betType)
         {
             this.AmountPlaced = amountPlaced;
             this.Payout = null; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
@@ -62,16 +54,7 @@ namespace Fall2020AppGroup10.Models
             
             this.Odds = odds;
             this.BetType = betType;
-            if (betType == "Player")
-            {
-                this.PlayerGameID = playerGameID;
-            }
-            else { this.PlayerGameID = null; }
-            if (betType == "Game")
-            {
-                this.GameID = gameID;
-            }
-            else { this.GameID = null; }
+            
 
             
         }

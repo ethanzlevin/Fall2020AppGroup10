@@ -13,5 +13,10 @@ namespace Fall2020AppGroup10.Models
         void AddPlayerBet(PlayerBet playerBet);
         
         void AddGameBet(GameBet gameBet);
+
+        List<HomeVsAwayModel> GameDropDown();
+
+       
+
     }
 }
