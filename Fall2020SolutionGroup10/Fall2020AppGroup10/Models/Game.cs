@@ -9,6 +9,7 @@ namespace Fall2020AppGroup10.Models
 {
     public class Game
     {
+
         [Key]
         public int GameID { get; set; }
 
@@ -28,8 +29,11 @@ namespace Fall2020AppGroup10.Models
         public int AwayID { get; set; }
         [ForeignKey("AwayID")]
 
+
+
         public Team Team { get; set; }
 
+     
         public List<GameBet> GameBet { get; set; }
 
         public List<PlayerGame> PlayerGame { get; set; }

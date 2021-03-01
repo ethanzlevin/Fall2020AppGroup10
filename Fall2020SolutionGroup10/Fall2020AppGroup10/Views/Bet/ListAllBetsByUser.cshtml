@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Bet>
+
+<h4> Your Bets </h4>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> User</th>
+            <th> Wagered</th>
+            <th> Start Date</th>
+            <th> End Date</th>
+            <th> User Win</th>
+            <th> Odds</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Bet eachBet in Model)
+        {
+            <tr>
+
+                <td>@eachBet.UserID</td> @*in the future I would make this UserName*@
+
+
+                <td>@eachBet.AmountPlaced</td>
+                <td>@eachBet.StartDate</td>
+
+                <td>@eachBet.EndDate</td>
+                <td>@eachBet.Result</td>
+                <td>@eachBet.Odds</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+
+
+
+
+
+
+
+

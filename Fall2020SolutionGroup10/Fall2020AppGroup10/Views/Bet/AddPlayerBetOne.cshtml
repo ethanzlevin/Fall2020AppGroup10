@@ -1,0 +1,30 @@
+﻿@model GameSelectViewModel
+@{
+    ViewData["Title"] = "AddPlayerBetOne";
+}
+
+<h1>Please Select a Game</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="AddPlayerBetOne" method="post">
+
+    
+
+
+   
+
+    <div class="form-group">
+        <label> Choose Game</label>
+        <select asp-for="GameID" asp-items="ViewBag.AllGames" class="form-control">
+            <option value="">None</option>
+        </select>
+
+    </div>
+
+ 
+
+    <button type="submit" class="btn btn-primary">Continue</button>
+
+</form>
+

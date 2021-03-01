@@ -27,42 +27,58 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
+
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="ListAllTeams">All Teams</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="SearchForGamesUserInput">Search For Games</a>
+                            </li>
+
+                            <li class="nav-link">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Team</a>
+                                <div class="dropdown-menu">
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="ListAllTeams"> All Teams </a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="SearchForTeams"> Search For Teams </a>
+
+
+                                </div>
                             </li>
 
                             @if (User.IsInRole("Employee"))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="SearchForGamesUserInput">Search For Games User Input</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="SearchForBets">Search For Bets By User</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="ListAllBets">All Bets</a>
-                                </li>
-                            }
-
-                            @if (User.IsInRole("User") || User.IsInRole("Employee"))
-                            {
-
                                 <li class="nav-link">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Team</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Admin Tools</a>  @*This is for functions only Employees should access*@
                                     <div class="dropdown-menu">
 
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="ListAllTeams"> All Teams </a>
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="SearchForTeams"> Search For Teams </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="SearchForBets">Search For Bets By User</a>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="AddTeam"> Add Team </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="ListAllBets"> All Bets </a>
+
+                                    </div>
+                                </li>
+
+
+
+                            }
+
+
+
+
+
+                            @if (User.IsInRole("User"))
+                            {
+                                <li class="nav-link">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Place Bet</a>
+                                    <div class="dropdown-menu">
+
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="AddGameBet"> Game Prop </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="AddPlayerBetOne"> Player Prop </a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bet" asp-action="ListAllBetsByUser"> My Bets </a>
 
                                     </div>
                                 </li>
                             }
-
                         }
-                        }
+                        
 
 
 

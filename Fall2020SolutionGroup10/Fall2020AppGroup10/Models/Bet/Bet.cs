@@ -12,7 +12,7 @@ namespace Fall2020AppGroup10.Models
         [Key]
         public int BetID { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Must Give a valid dollar amount")]
         [Column(TypeName = "decimal(18,2)")]
 
         public decimal AmountPlaced { get; set; }
@@ -40,37 +40,21 @@ namespace Fall2020AppGroup10.Models
         public User User { get; set; }
 
         
-        public int? PlayerGameID { get; set; }
-        [ForeignKey("PlayerGameID")]
-
-        public PlayerGame PlayerGame { get; set; }
-
-        public int? GameID { get; set; }
-        [ForeignKey("GameID")]
-
-        public Game Game { get; set; }
+      
 
 
-        public Bet(decimal amountPlaced, DateTime startDate, DateTime? endDate, bool? result, string userID, short odds, string betType, int? playerGameID, int? gameID)
+        public Bet(decimal amountPlaced, DateTime? endDate, bool? result, string userID, short odds, string betType)
         {
             this.AmountPlaced = amountPlaced;
             this.Payout = null; //this can be 0 or negative if wrong, and can be signigicantly higher than amount put in
-            this.StartDate = startDate;
+            this.StartDate = DateTime.Today.Date;
             this.EndDate = null;
             this.Result = null;
             this.UserID = userID;
+            
             this.Odds = odds;
             this.BetType = betType;
-            if (betType == "Player")
-            {
-                this.PlayerGameID = playerGameID;
-            }
-            else { this.PlayerGameID = null; }
-            if (betType == "Game")
-            {
-                this.GameID = gameID;
-            }
-            else { this.GameID = null; }
+            
 
             
         }

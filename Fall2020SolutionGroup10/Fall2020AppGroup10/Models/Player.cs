@@ -20,6 +20,9 @@ namespace Fall2020AppGroup10.Models
         [Required]
         public string LastName { get; set; }
 
+        public string FullName
+        { get { return (FirstName + " " + LastName); } }
+
         [Required]
         public DateTime DOB { get; set; }
 

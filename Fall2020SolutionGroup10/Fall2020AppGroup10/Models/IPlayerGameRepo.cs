@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace Fall2020AppGroup10.Models
 {
-    public interface IBetRepo
+    public interface IPlayerGameRepo
     {
-        List<Bet> ListAllBets();
-
-        List<User> ListAllUsers();
+        List<PlayerGameDropDownViewModel> ListAllPlayerinGame(int gameID);
     }
 }

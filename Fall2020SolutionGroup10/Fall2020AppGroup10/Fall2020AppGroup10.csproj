@@ -48,6 +48,10 @@
     <Compile Remove="Data\Migrations\20210125183708_allTables.Designer.cs" />
     <Compile Remove="Data\Migrations\20210125183819_allTables.cs" />
     <Compile Remove="Data\Migrations\20210125183819_allTables.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210227180819_Test.cs" />
+    <Compile Remove="Data\Migrations\20210227180819_Test.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210227181719_Test.cs" />
+    <Compile Remove="Data\Migrations\20210227181719_Test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,7 +60,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
 </Project>

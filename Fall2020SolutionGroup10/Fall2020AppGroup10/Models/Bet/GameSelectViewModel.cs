@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Fall2020AppGroup10.Models
 {
-    public interface IPlayerRepo
+    public class GameSelectViewModel
     {
-        
-        void AddPlayer(Player player);
+
+        public int GameID { get; set; }
     }
-
-
 }

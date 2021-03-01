@@ -1,0 +1,42 @@
+﻿@model GameBet
+@{
+    ViewData["Title"] = "AddGameBet";
+}
+
+<h1>AddGameBet</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+
+<form asp-action="AddGameBet" method="post">
+
+    <input type="hidden" name="UserID" value=@ViewBag.UserID />
+    <input type="hidden" name="BetType" value="Game" />
+
+
+    <div class="form-group">
+        <label>Wager</label>
+        <input asp-for="AmountPlaced" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Choose Game</label>
+        <select asp-for="GameID" asp-items="ViewBag.AllGames" class="form-control">
+            <option value="">None</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label> Winning Team</label>
+        <select asp-for="WinningTeam" class="form-control">
+            <option value="">None</option>
+            <option value="Home">Home</option>
+            <option value="Away">Away</option>
+        </select>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Place Bet</button>
+
+</form>

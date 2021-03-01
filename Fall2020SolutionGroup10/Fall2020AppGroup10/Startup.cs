@@ -37,10 +37,13 @@ namespace Fall2020AppGroup10
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddTransient<IApplicationUserRepo, ApplicationUserRepo>();
             services.AddTransient<ITeamRepo, TeamRepo>();
             services.AddTransient<IGameRepo, GameRepo>();
             services.AddTransient<IBetRepo,BetRepo>();
             services.AddTransient<IPlayerRepo, PlayerRepo>();
+            services.AddTransient<IPlayerGameRepo, PlayerGameRepo>();
+
 
         }
 
