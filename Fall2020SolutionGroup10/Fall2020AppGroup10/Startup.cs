@@ -42,6 +42,7 @@ namespace Fall2020AppGroup10
             services.AddTransient<IGameRepo, GameRepo>();
             services.AddTransient<IBetRepo,BetRepo>();
             services.AddTransient<IPlayerRepo, PlayerRepo>();
+            services.AddTransient<IPlayerGameRepo, PlayerGameRepo>();
 
 
         }

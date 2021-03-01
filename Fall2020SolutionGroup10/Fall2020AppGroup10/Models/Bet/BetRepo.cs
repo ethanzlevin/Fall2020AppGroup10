@@ -65,6 +65,6 @@ namespace Fall2020AppGroup10.Models
         }
 
 
-        }
+        
     }
 }

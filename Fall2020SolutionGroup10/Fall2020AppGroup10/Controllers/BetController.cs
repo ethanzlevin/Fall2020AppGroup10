@@ -15,12 +15,15 @@ namespace Fall2020AppGroup10.Controllers
         private IBetRepo iBetRepo;
         private IApplicationUserRepo iApplicationUserRepo;
         private IGameRepo iGameRepo;
+        private IPlayerGameRepo iPlayerGameRepo;
+        private int gameIdpost;
 
-        public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo, IGameRepo gameRepo)
+        public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo, IGameRepo gameRepo, IPlayerGameRepo playerGameRepo)
         {
             this.iBetRepo = betRepo;
             this.iApplicationUserRepo = applicationUserRepo;
             this.iGameRepo = gameRepo;
+            this.iPlayerGameRepo = playerGameRepo;
         }
 
         //[Authorize(Roles = "Employee")]
@@ -92,24 +95,41 @@ namespace Fall2020AppGroup10.Controllers
 
 
         [HttpGet]
-        public void AddPlayerBetOne()
+        public IActionResult AddPlayerBetOne()
         {
             ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+
+            return View();
 
         }
         [HttpPost]
         public IActionResult AddPlayerBetOne(GameSelectViewModel gameSelectViewModel)
-        { 
-         return RedirectToAction("AddPlayerBet", new {gameID = gameSelectViewModel.GameID }); //maybe?
+        {
+            if (gameSelectViewModel.GameID == 0)
+            {
+                ModelState.AddModelError("GameID", "Please select a game");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("AddPlayerBet", new { gameID = gameSelectViewModel.GameID });
+            }
+            else
+            {
+                ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+
+
+                return View(); }
+          //maybe?
         }
 
 
         [HttpGet]
         public IActionResult AddPlayerBet(int gameID) //meet with someone about this
         {
-
+            gameIdpost = gameID;
             ViewData["UserID"] = iApplicationUserRepo.FindUserID();
-            ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+            ViewData["AllPlayers"] = new SelectList(iPlayerGameRepo.ListAllPlayerinGame(gameID), "PlayerGameID", "PlayerName");
             return View();
         }
 
@@ -128,9 +148,9 @@ namespace Fall2020AppGroup10.Controllers
             {
 
                 ViewData["UserID"] = iApplicationUserRepo.FindUserID();
-                ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName");
+                ViewData["AllPlayers"] = new SelectList(iPlayerGameRepo.ListAllPlayerinGame(gameIdpost), "PlayerGameID", "PlayerName");
 
-                //create a list all players by team
+
 
                 return View();
             }

@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label>Choose Player</label>
-        <select asp-for="PlayerGameID"  class="form-control">
+        <select asp-for="PlayerGameID" asp-items="ViewBag.AllPlayers" class="form-control">
             <option value="">None</option>
 
             @*work this out with jaren or nanda*@
