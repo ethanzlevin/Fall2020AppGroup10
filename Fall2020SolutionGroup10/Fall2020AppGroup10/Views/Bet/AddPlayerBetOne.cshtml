@@ -1,4 +1,4 @@
-﻿
+﻿@model GameSelectViewModel
 @{
     ViewData["Title"] = "AddPlayerBetOne";
 }
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <label> Choose Game</label>
-        <select asp-items="ViewBag.AllGames" class="form-control">
+        <select asp-for="GameID" asp-items="ViewBag.AllGames" class="form-control">
             <option value="">None</option>
         </select>
 
@@ -24,7 +24,7 @@
 
  
 
-    <button type="submit" class="btn btn-primary" asp-controller="Bet" asp-action="AddPlayerBet" asp-route-GameID="gameId">Continue</button>
+    <button type="submit" class="btn btn-primary" asp-controller="Bet" asp-action="AddPlayerBet">Continue</button>
 
 </form>
 

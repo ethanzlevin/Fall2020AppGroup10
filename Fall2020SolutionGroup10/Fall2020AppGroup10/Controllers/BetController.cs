@@ -32,10 +32,10 @@ namespace Fall2020AppGroup10.Controllers
         }
 
 
-        
+
         public IActionResult SearchForBets(SearchForBetsViewModel searchForBets)
         {
-            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/ //this is where I cannot get the dropdown to populate
+            ViewData["AllUsers"] = new SelectList(iBetRepo.ListAllUsers(), "Id", "FullName"); /*list of items, value, text*/
 
             List<Bet> searchList;
 
@@ -59,7 +59,7 @@ namespace Fall2020AppGroup10.Controllers
 
             gameBet.StartDate = DateTime.Now.Date;
             gameBet.Odds = 100;
-            
+
             if (ModelState.IsValid)
             {
                 iBetRepo.AddGameBet(gameBet);
@@ -68,7 +68,7 @@ namespace Fall2020AppGroup10.Controllers
             else
             {
                 ViewData["UserID"] = iApplicationUserRepo.FindUserID();
-                
+
 
                 ViewData["AllGames"] = new SelectList(iBetRepo.GameDropDown(), "GameID", "GameName"); //ask if i can get home vs away using viewbag
 
@@ -90,7 +90,7 @@ namespace Fall2020AppGroup10.Controllers
         }
 
 
-       
+
         [HttpGet]
         public void AddPlayerBetOne()
         {
@@ -98,12 +98,14 @@ namespace Fall2020AppGroup10.Controllers
 
         }
         [HttpPost]
-        public IActionResult AddPlayerBetOne(int gameId) => RedirectToAction("AddPlayerBet"); //maybe?
-
+        public IActionResult AddPlayerBetOne(GameSelectViewModel gameSelectViewModel)
+        { 
+         return RedirectToAction("AddPlayerBet", new {gameID = gameSelectViewModel.GameID }); //maybe?
+        }
 
 
         [HttpGet]
-        public IActionResult AddPlayerBet() //meet with someone about this
+        public IActionResult AddPlayerBet(int gameID) //meet with someone about this
         {
 
             ViewData["UserID"] = iApplicationUserRepo.FindUserID();
@@ -120,7 +122,7 @@ namespace Fall2020AppGroup10.Controllers
             if (ModelState.IsValid)
             {
                 iBetRepo.AddPlayerBet(playerBet);
-                return RedirectToAction("ListAllBetsByUser"); // make a list all bets for user
+                return RedirectToAction("ListAllBetsByUser");
             }
             else
             {
