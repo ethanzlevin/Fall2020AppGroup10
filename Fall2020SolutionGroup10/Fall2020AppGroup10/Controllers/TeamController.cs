@@ -25,10 +25,48 @@ namespace Fall2020AppGroup10.Controllers
             //this.database = dbContext; 
         }
 
-        public void EditTeam(Team team)
+        [HttpGet]
+        public IActionResult EditTeam(int? teamID)
         {
-            throw new NotImplementedException();
+            ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+            ViewData["AllCities"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "City");
+
+            Team team = iTeamRepo.FindTeam(teamID);
+            return View(team);
+
         }
+
+        [HttpPost]
+        public IActionResult EditTeam(Team team)
+        {
+            if (ModelState.IsValid)
+            {
+                iTeamRepo.EditTeam(team);
+                return RedirectToAction("ListAllTeams");
+            }
+            else
+            {
+                ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+                ViewData["AllCities"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "City");
+
+                return View(team);
+
+            }
+        }
+
+        public IActionResult ConfirmDeleteTeam(int? teamID)
+        {
+            Team team = iTeamRepo.FindTeam(teamID);
+
+            return View(team);
+        }
+
+        public IActionResult DeleteTeam(Team team)
+        {
+            iTeamRepo.DeleteTeam(team);
+            return RedirectToAction("ListAllTeams");
+        }
+
 
         [HttpPost]
         public IActionResult AddTeam(Team team)

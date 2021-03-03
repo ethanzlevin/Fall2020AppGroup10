@@ -10,5 +10,8 @@ namespace Fall2020AppGroup10.Models
         List<Team> ListAllTeams();
 
         int AddTeam(Team team);
+        void EditTeam(Team team);
+        Team FindTeam(int? teamID);
+        void DeleteTeam(Team team);
     }
 }

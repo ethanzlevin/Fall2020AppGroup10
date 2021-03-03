@@ -23,6 +23,24 @@ namespace Fall2020AppGroup10.Models
             return team.TeamID;
         }
 
+        public void DeleteTeam(Team team)
+        {
+            database.Team.Remove(team);
+            database.SaveChanges();
+        }
+
+        public void EditTeam(Team team)
+        {
+            database.Team.Update(team);
+            database.SaveChanges();
+        }
+
+        public Team FindTeam(int? teamID)
+        {
+            Team team = database.Team.Find(teamID);
+            return team;
+        }
+
         public List<Team> ListAllTeams()
         {
             List<Team> teams = database.Team.Include(p => p.PlayersOnTeam).ToList();

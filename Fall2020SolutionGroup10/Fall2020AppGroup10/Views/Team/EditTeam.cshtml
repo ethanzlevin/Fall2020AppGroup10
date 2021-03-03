@@ -1,0 +1,18 @@
+﻿@model Team
+
+@{
+    ViewData["Title"] = "EditTeam";
+}
+
+<h1>EditTeam</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="EditTeam" asp-controller="Team" method="post">
+
+    @Html.HiddenFor(m => m.TeamID)
+
+    <partial name="AddEditTeamPartialView" model="Model" />
+
+    <button type="submit" class="btn btn-primary">Edit Team</button>
+</form>
