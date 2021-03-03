@@ -29,7 +29,7 @@ namespace Fall2020TestGroup10
             teamController = new TeamController(mockTeamRepo.Object, mockPlayerRepo.Object);
         }
 
-        /*
+        
 
         [Fact]
         public void ShouldEditTeam()
@@ -45,7 +45,26 @@ namespace Fall2020TestGroup10
             //3. Assert
             mockTeamRepo.Verify(m => m.EditTeam(team), Times.Exactly(1));
         }
-        */
+
+
+        [Fact]
+        public void ShouldDeletePet()
+        {
+            //1. Arrange
+            //DateTime dateOfBirth = new DateTime(2021, 1, 1);
+            Team team = new Team("Test Team", "Test City", "Test Division", 0, 13);
+
+            team.TeamID = 6;
+            mockTeamRepo.Setup(m => m.DeleteTeam(It.IsAny<Team>()));
+
+            //2. Act
+            teamController.DeleteTeam(team);
+
+            //3. Assert (Verification)
+            mockTeamRepo.Verify(m => m.DeleteTeam(team), Times.Exactly(1));
+
+        }
+
 
         [Fact]
         public void ShouldAddNewTeam()

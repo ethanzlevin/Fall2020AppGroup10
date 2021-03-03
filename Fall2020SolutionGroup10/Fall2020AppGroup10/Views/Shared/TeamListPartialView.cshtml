@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Team>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> City </th>
+            <th> Division </th>
+            <th> Wins </th>
+            <th> Losses </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Team eachTeam in Model)
+        {
+            <tr>
+                <td>@eachTeam.Name </td>
+                <td>@eachTeam.City </td>
+                <td>@eachTeam.Division </td>
+                <td>@eachTeam.Wins</td>
+                <td>@eachTeam.Losses</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Team" asp-action="EditTeam" asp-route-teamID="@eachTeam.TeamID">Edit</a>
+                    <a class="btn btn-primary" asp-controller="Team" asp-action="ConfirmDeleteTeam" asp-route-teamID="@eachTeam.TeamID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

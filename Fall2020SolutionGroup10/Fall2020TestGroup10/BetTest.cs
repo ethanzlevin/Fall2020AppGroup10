@@ -14,17 +14,22 @@ namespace Fall2020TestGroup10
     public class BetTest
     {
         private Mock<IBetRepo> mockBetRepo;
-        private BetController betController;
         private Mock<IApplicationUserRepo> mockApplicationUserRepo;
         private Mock<IGameRepo> mockGameRepo;
-        
+        private Mock<IPlayerGameRepo> mockPlayerGameRepo;
+
+        private BetController betController;
+
 
         public BetTest()
         {
             mockBetRepo = new Mock<IBetRepo>();
             mockApplicationUserRepo = new Mock<IApplicationUserRepo>();
             mockGameRepo = new Mock<IGameRepo>();
-            betController = new BetController(mockBetRepo.Object, mockApplicationUserRepo.Object, mockGameRepo.Object);
+            mockPlayerGameRepo = new Mock<IPlayerGameRepo>();
+            betController = new BetController(mockBetRepo.Object, mockApplicationUserRepo.Object, mockGameRepo.Object, mockPlayerGameRepo.Object);
+
+            //public BetController(IBetRepo betRepo, IApplicationUserRepo applicationUserRepo, IGameRepo gameRepo, IPlayerGameRepo playerGameRepo)
 
         }
         [Fact]
