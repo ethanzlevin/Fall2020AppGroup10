@@ -1,4 +1,5 @@
 ﻿using Fall2020AppGroup10.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,17 @@ namespace Fall2020AppGroup10.Models
             this.database = dbContext;
         }
 
-        public void AddPlayer(Player player)
+        public void AddPlayer(Player player) 
         {
             database.Player.Add(player);
             database.SaveChanges();
         }
 
+        public List<Player> ListAllPlayers()
+        {
+            //throw new NotImplementedException();
+            List<Player> player = database.Player.ToList();
+            return player;
+        }
     }
 }
