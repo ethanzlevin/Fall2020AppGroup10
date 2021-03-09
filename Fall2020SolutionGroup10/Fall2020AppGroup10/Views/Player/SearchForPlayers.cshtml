@@ -1,0 +1,81 @@
+﻿@model SearchForPlayerViewModel
+@{
+    ViewData["Title"] = "SearchForPlayers";
+}
+
+<h3>Search For Players</h3>
+<h5>All selections are optional</h5>
+
+<form asp-controller="Player" asp-action="SearchForPlayers" method="post">
+
+    <input asp-for="UserFirstVisit" value="No" type="hidden" />
+
+    <div class="form-group">
+        <label> Choose Team</label>
+        <select asp-for="TeamID" asp-items="ViewBag.AllTeams" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Position</label>
+        <input asp-for="Position" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search For Players</button>
+
+</form>
+
+
+<h4>Search Result</h4>
+
+@if (Model.ResultList != null)
+{
+
+    @if (Model.ResultList.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th> First Name</th>
+                    <th> Last Name</th>
+                    <th> Positon</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Player eachPlayer in Model.ResultList)
+                {
+                <tr>
+                    <td>@eachPlayer.FirstName</td>
+                    <td>@eachPlayer.LastName</td>
+                    <td>@eachPlayer.Position</td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    }
+
+    else
+    {
+        <h4> No teams meet your search criteria</h4>
+    }
+}
+
+
+
