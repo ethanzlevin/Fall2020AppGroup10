@@ -27,5 +27,14 @@ namespace Fall2020AppGroup10.Models
             List<Team> teams = database.Team.ToList();
             return teams;
         }
+
+
+        public void AddGame(Game game)
+        {
+            database.Game.Add(game);
+            database.SaveChanges();
+        }
+
+
     }
 }

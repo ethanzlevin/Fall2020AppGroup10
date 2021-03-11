@@ -22,7 +22,7 @@ namespace Fall2020AppGroup10.Models
 
         public short Odds { get; set; } // its a short so we can have negative odds
 
-        [NotMapped]
+        
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }

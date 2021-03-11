@@ -1,0 +1,48 @@
+﻿@model Game
+
+@{
+    ViewData["Title"] = " AddGame";
+}
+
+<h4>Add Game</h4>
+
+<div asp-validation-summary="All" class="text-danger"/>
+
+
+<form asp-action="AddGame" asp-controller="Game" method="post">
+
+    <div class="form-group">
+        <label>Date of game</label>
+        <input asp-for="Date" class="form-control" />
+        Please enter date in this format: MM/DD/YYYY
+    </div>
+
+    <div class="for-group">
+        <label>Choose Home Team</label>
+        <select asp-for="HomeID" asp-items="ViewBag.AllTeams" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="for-group">
+        <label>Choose Away Team</label>
+        <select asp-for="AwayID" asp-items="ViewBag.AllTeams" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Favorite</label>
+        <input asp-for="Favorite" class="form-control" />
+        Please enter True or False.
+    </div>
+
+    <div class="form-group">
+        <label>Total Score</label>
+        <input asp-for="Score" class="form-control" />
+        Please enter only numeric characters.
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

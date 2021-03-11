@@ -11,12 +11,13 @@ namespace Fall2020AppGroup10.Controllers
 {
     public class GameController : Controller
     {
-
+        private ITeamRepo iTeamRepo;
         private IGameRepo iGameRepo;
 
-        public GameController(IGameRepo gameRepo)
+        public GameController(IGameRepo gameRepo, ITeamRepo teamRepo)
         {
             this.iGameRepo = gameRepo;
+            this.iTeamRepo = teamRepo;
         }
 
         //[Authorize(Roles = "Employee, User")]
@@ -69,6 +70,32 @@ namespace Fall2020AppGroup10.Controllers
             return View(searchList);
 
         }
+
+        [HttpGet]//User gets the view
+        public IActionResult AddGame()
+        {
+            ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+            return View();
+        }
+
+        [HttpPost]//User input sent to server for processing
+        public IActionResult AddGame(Game game)
+        {
+            if (ModelState.IsValid)
+            {
+                iGameRepo.AddGame(game);
+                return RedirectToAction("ListAllGames");
+            }
+            else
+            {
+                ViewData["AllTeams"] = new SelectList(iTeamRepo.ListAllTeams(), "TeamID", "Name");
+                return View();
+            }
+        }
+
+
+
+
 
     }
 }

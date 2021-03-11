@@ -9,6 +9,8 @@ namespace Fall2020AppGroup10.Models
     {
         List<Game> ListAllGames();
 
+        void AddGame(Game game);
+
         List<Team> ListAllTeams();
     }
 }
