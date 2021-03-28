@@ -40,18 +40,22 @@ namespace Fall2020AppGroup10.Data
             if (!database.ApplicationUser.Any())
             {
                 User user = new User("Test", "User1", "1 User1 Address", "3040000001", "TestUser1@test.com", "TestUser1");
+                user.EmailConfirmed = true;
                 userManager.CreateAsync(user).Wait();
                 userManager.AddToRoleAsync(user, userRole).Wait();   //all async method need to have wait() attached
 
                 user = new User("Test", "User2", "2 User2 Address", "3040000002", "TestUser2@test.com", "TestUser2");
+                user.EmailConfirmed = true;
                 userManager.CreateAsync(user).Wait();
                 userManager.AddToRoleAsync(user, userRole).Wait();
 
                 Employee employee = new Employee("Test", "Employee1", "1 Employee1 Address", "3040000003", "TestEmployee1@test.com", "TestEmployee1", 43);
+                employee.EmailConfirmed = true;
                 userManager.CreateAsync(employee).Wait();
                 userManager.AddToRoleAsync(employee, employeeRole).Wait();
 
                 employee = new Employee("Test", "Employee2", "2 Employee2 Address", "3040000004", "TestEmployee2@test.com", "TestEmployee2", 19);
+                employee.EmailConfirmed = true;
                 userManager.CreateAsync(employee).Wait();
                 userManager.AddToRoleAsync(employee, employeeRole).Wait();
             }

@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Fall2020AppGroup10.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Fall2020AppGroup10
 {
@@ -31,7 +32,19 @@ namespace Fall2020AppGroup10
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<ApplicationUser>
+                (
+                    options =>
+                    {
+                        options.SignIn.RequireConfirmedAccount = true;
+                        options.Password.RequiredLength = 6;
+                        options.Password.RequireNonAlphanumeric = false;
+                        options.Password.RequireUppercase = true;
+                        options.Password.RequireLowercase = true;
+                        options.Password.RequireDigit = true;
+                        options.User.RequireUniqueEmail = true;
+                    }
+                )
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -43,7 +56,7 @@ namespace Fall2020AppGroup10
             services.AddTransient<IBetRepo,BetRepo>();
             services.AddTransient<IPlayerRepo, PlayerRepo>();
             services.AddTransient<IPlayerGameRepo, PlayerGameRepo>();
-
+            services.AddTransient<IEmailSender, EmailSender>();
 
         }
 
