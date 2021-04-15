@@ -9,5 +9,12 @@ namespace Fall2020AppGroup10.Models
     {
 
         public string FindUserID();
+
+
+        ApplicationUser FindApplicationUser(string userID);
+
+        List<ApplicationUser> ListAllApplicationUsers();
+        string GetCurrentRoles(string Id);
+        string GetAvailableRoles(string Id);
     }
 }
