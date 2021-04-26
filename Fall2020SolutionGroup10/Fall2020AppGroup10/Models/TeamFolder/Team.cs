@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,21 +10,25 @@ namespace Fall2020AppGroup10.Models
     public class Team
     {
         [Key]
+        [JsonProperty(PropertyName = "teamId")]
         public int TeamID { get; set; }
         
         [Required (ErrorMessage = "Team must be an NBA team")]
+        [JsonProperty(PropertyName = "nickname")]
         public string Name { get; set; }
 
         [Required]
+        [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
         
         [Required (ErrorMessage = "Division must be East or West")]
+        [JsonProperty(PropertyName = "confName")]
         public string Division { get; set; }
 
-        [Required]
+        
         public int Wins { get; set; }
 
-        [Required]
+        
         public int Losses { get; set; }
 
         public List<Player> PlayersOnTeam { get; set; }
@@ -32,13 +37,12 @@ namespace Fall2020AppGroup10.Models
 
         public Team() { }
 
-        public Team(string name, string city, string division, int wins, int losses)
+        public Team(string name, string city, string division)
         {
             this.Name = name;
             this.City = city;
             this.Division = division;
-            this.Wins = wins;
-            this.Losses = losses;
+            
             this.PlayersOnTeam = new List<Player>();
             this.Game = new List<Game>();
         }
